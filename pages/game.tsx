@@ -123,8 +123,8 @@ const GamePage = () => {
                   DashBoard
                 </Link>
                 <div></div>
-                <div className="flex w-[500px]h-[190px] ">
-                  <ConnectButton className="bg-wallet bg-cover content-none w-[300px] bg-black text-[0px]" />
+                <div className="flex w-[500px]h-[190px]opacity-100 ">
+                  <ConnectButton className="opacity-100" />
                 </div>
               </div>
             </div>
