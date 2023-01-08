@@ -93,9 +93,9 @@ export const Roadmap = () => {
             <div className="flex justify-center">
               <Fade direction="up">
                 <Image
-                  src="/landing/card1.png"
-                  width={150}
-                  height={150}
+                  src="/landing/mCard1.png"
+                  width={300}
+                  height={300}
                   alt="card1"
                   className=" "
                 />
@@ -104,9 +104,9 @@ export const Roadmap = () => {
             <div className="flex justify-center">
               <Fade direction="up">
                 <Image
-                  src="/landing/card3.png"
-                  width={150}
-                  height={150}
+                  src="/landing/mCard1.png"
+                  width={300}
+                  height={300}
                   alt="card1"
                   className=""
                 />
@@ -115,9 +115,9 @@ export const Roadmap = () => {
             <div className="flex justify-center">
               <Fade direction="up">
                 <Image
-                  src="/landing/card5.png"
-                  width={150}
-                  height={150}
+                  src="/landing/mCard1.png"
+                  width={300}
+                  height={300}
                   alt="card1"
                   className=""
                 />
@@ -127,9 +127,9 @@ export const Roadmap = () => {
             <div className="flex justify-center">
               <Fade direction="up">
                 <Image
-                  src="/landing/card2.png"
-                  width={150}
-                  height={150}
+                  src="/landing/mCard1.png"
+                  width={300}
+                  height={300}
                   alt="card1"
                   className=""
                 />
@@ -138,9 +138,9 @@ export const Roadmap = () => {
             <div className="flex justify-center">
               <Fade direction="up">
                 <Image
-                  src="/landing/card4.png"
-                  width={150}
-                  height={150}
+                  src="/landing/mCard1.png"
+                  width={300}
+                  height={300}
                   alt="card1"
                   className=" "
                 />
@@ -149,9 +149,9 @@ export const Roadmap = () => {
             <div className="flex justify-center">
               <Fade direction="up">
                 <Image
-                  src="/landing/card6.png"
-                  width={150}
-                  height={150}
+                  src="/landing/mCard1.png"
+                  width={300}
+                  height={300}
                   alt="card1"
                   className=" "
                 />
