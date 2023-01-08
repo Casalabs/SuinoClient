@@ -53,27 +53,20 @@ export const Faqs = () => {
     let a = isClicked.slice();
     a[index].phraseOpen = !a[index].phraseOpen;
     setIsClicked(a);
-    // console.log(
-    //   isClicked.filter((e) => e.phraseOpen == true),
-    //   "true"
-    // );
-    // console.log(
-    //   isClicked.filter((e) => e.phraseOpen == false),
-    //   "false"
-    // );
   };
-  console.log(isClicked, "is");
 
   return (
     <div className="flex-col 2xl:w-4/5 xl:w-4/5 sm:w-full h-screen justify-center item-center">
-      <div className="h-2/3">
+      <div className="h-auto">
         <div className="flex justify-center 2xl:mt-[200px] xl:mt-[200px] sm:mt-[50px]">
           <p className="text-[5rem] font-bold  ">FAQ</p>
         </div>
         <div className="h-full flex-col justify-center item-center">
           {isClicked.map((q, index) => {
-            const clickClass = q.phraseOpen ? "display text-sm" : "hidden ";
-            const ansClass = `${clickClass} p-4 text-xl font-serif`;
+            const clickClass = q.phraseOpen
+              ? "block w-full h-auto text-sm"
+              : "hidden ";
+            const ansClass = `${clickClass} w-full p-4 text-xl font-serif`;
             return (
               <div
                 key={index}
@@ -94,48 +87,49 @@ export const Faqs = () => {
                       <FontAwesomeIcon icon={faChevronUp} className="w-5" />
                     )}
                   </button>
+
                   <div className={ansClass}>{q.phrase}</div>
                 </div>
               </div>
             );
           })}
         </div>
-      </div>
-      <div className="flex-col w-full h-auto ">
-        {" "}
-        <div className=" h-1/3 flex-col justify-center bottom-0  ">
-          <div className="flex  cursor h-auto w-full justify-center items-center ">
-            <Link
-              href="#"
-              className="flex rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 "
-            >
-              <FontAwesomeIcon
-                icon={faDiscord}
-                className="text-white text-[30px]"
-              />
-            </Link>
-            <Link
-              href="#"
-              className="flex rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 "
-            >
-              <FontAwesomeIcon
-                icon={faTwitter}
-                className="text-white  text-[30px]"
-              />{" "}
-            </Link>
+        <div className="flex-col relative bottom-0 mt-[100px]">
+          {" "}
+          <div className=" h-1/3 flex-col justify-center bottom-0  ">
+            <div className="flex  cursor h-auto w-full justify-center items-center ">
+              <Link
+                href="#"
+                className="flex rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 "
+              >
+                <FontAwesomeIcon
+                  icon={faDiscord}
+                  className="text-white text-[30px]"
+                />
+              </Link>
+              <Link
+                href="#"
+                className="flex rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 "
+              >
+                <FontAwesomeIcon
+                  icon={faTwitter}
+                  className="text-white  text-[30px]"
+                />{" "}
+              </Link>
 
-            <Link
-              href="#"
-              className="flex rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 "
-            >
-              <FontAwesomeIcon
-                icon={faGithub}
-                className="text-white  text-[30px]"
-              />{" "}
-            </Link>
-          </div>
-          <div className="flex justify-center items-center py-5 ">
-            <span>Made by casaLabs</span>
+              <Link
+                href="#"
+                className="flex rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 "
+              >
+                <FontAwesomeIcon
+                  icon={faGithub}
+                  className="text-white  text-[30px]"
+                />{" "}
+              </Link>
+            </div>
+            <div className="flex justify-center items-center py-5 ">
+              <span>Made by casaLabs</span>
+            </div>
           </div>
         </div>
       </div>
