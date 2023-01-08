@@ -4,14 +4,11 @@ import Image from "next/image";
 export const Roadmap = () => {
   return (
     <div className="flex justify-center">
-      <div
-        id="roadmap"
-        className="  2xl:block xl:block lg:block sm:hidden box-border flex-col  h-[2200px] w-[1540px]  px-6 pt-6 lg:px-10 justify-center text-white bg-no-repeat bg-roadmap2 bg-cover bg-center "
-      >
+      <div className="  2xl:block xl:block lg:block sm:hidden box-border flex-col  h-[2200px] w-[1540px]  px-6 pt-6 lg:px-10 justify-center text-white bg-no-repeat bg-roadmap2 bg-cover bg-center ">
         {" "}
         <div className="flex-col object-contain ">
           <div className="flex object-cover justify-center  ">
-            <div className="flex-col pt-[300px]">
+            <div className="flex-col pt-[400px]">
               <div className="my-[50px]">
                 <Fade direction="up">
                   <Image
@@ -19,7 +16,7 @@ export const Roadmap = () => {
                     width={400}
                     height={300}
                     alt="card1"
-                    className="mx-[150px] mt-[100px]"
+                    className="mx-[150px] mt-[100px] h-auto"
                   />
                 </Fade>
               </div>
@@ -30,7 +27,7 @@ export const Roadmap = () => {
                     width={400}
                     height={300}
                     alt="card1"
-                    className="mx-[150px]"
+                    className="mx-[150px] h-auto"
                   />
                 </Fade>
               </div>
@@ -41,12 +38,12 @@ export const Roadmap = () => {
                     width={400}
                     height={300}
                     alt="card1"
-                    className="mx-[150px]"
+                    className="mx-[150px] h-auto"
                   />
                 </Fade>
               </div>
             </div>
-            <div className="flex-col pt-[300px]">
+            <div className="flex-col pt-[400px] h-auto">
               <div>
                 <Fade direction="up">
                   <Image
@@ -54,7 +51,7 @@ export const Roadmap = () => {
                     width={400}
                     height={300}
                     alt="card1"
-                    className="mx-[150px]"
+                    className="mx-[150px] h-auto"
                   />
                 </Fade>
               </div>
@@ -65,7 +62,7 @@ export const Roadmap = () => {
                     width={400}
                     height={300}
                     alt="card1"
-                    className="mx-[150px] "
+                    className="mx-[150px] h-auto "
                   />
                 </Fade>
               </div>
@@ -76,7 +73,7 @@ export const Roadmap = () => {
                     width={400}
                     height={300}
                     alt="card1"
-                    className="mx-[150px] "
+                    className="mx-[150px] h-auto "
                   />
                 </Fade>
               </div>
