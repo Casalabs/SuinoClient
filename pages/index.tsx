@@ -41,6 +41,7 @@ const Home = () => {
           <NavBar />
           <ReactFullpage
             navigation
+            autoScrolling={true}
             licenseKey={"U04K9-ZTA9I-XQJ2J-L53PK-YJCTN"}
             scrollingSpeed={500}
             anchors={["Home", "Story", "Roadmap", "Seven", "faq"]}
@@ -66,7 +67,7 @@ const Home = () => {
                 <div className="section">
                   <div
                     id="qna"
-                    className="flex  px-6 pt-6 lg:px-10 justify-center text-white  bg-cover md:bg-none bg-brandbackground"
+                    className="flex-col w-full h-screen  px-6 pt-6 lg:px-10 justify-center text-white  bg-cover md:bg-none bg-brandbackground"
                   >
                     <Faqs />
                   </div>

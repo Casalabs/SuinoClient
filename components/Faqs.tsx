@@ -65,9 +65,9 @@ export const Faqs = () => {
   console.log(isClicked, "is");
 
   return (
-    <div className="flex-col w-4/5 h-screen justify-center item-center">
+    <div className="flex-col 2xl:w-4/5 xl:w-4/5 sm:w-full h-screen justify-center item-center">
       <div className="h-2/3">
-        <div className="flex justify-center mt-[200px] ">
+        <div className="flex justify-center 2xl:mt-[200px] xl:mt-[200px] sm:mt-[50px]">
           <p className="text-[5rem] font-bold  ">FAQ</p>
         </div>
         <div className="h-full flex-col justify-center item-center">
@@ -101,13 +101,13 @@ export const Faqs = () => {
           })}
         </div>
       </div>
-      <div>
+      <div className="flex-col w-full h-auto ">
         {" "}
-        <div className=" h-1/3 flex-col justify-center bottom-0 ">
-          <div className="flex cursor h-full w-auto justify-center items-center ">
+        <div className=" h-1/3 flex-col justify-center bottom-0  ">
+          <div className="flex  cursor h-auto w-full justify-center items-center ">
             <Link
               href="#"
-              className="inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 text-gray "
+              className="flex rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 "
             >
               <FontAwesomeIcon
                 icon={faDiscord}
@@ -116,7 +116,7 @@ export const Faqs = () => {
             </Link>
             <Link
               href="#"
-              className="inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 "
+              className="flex rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 "
             >
               <FontAwesomeIcon
                 icon={faTwitter}
@@ -126,7 +126,7 @@ export const Faqs = () => {
 
             <Link
               href="#"
-              className="inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 "
+              className="flex rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 "
             >
               <FontAwesomeIcon
                 icon={faGithub}
@@ -134,14 +134,7 @@ export const Faqs = () => {
               />{" "}
             </Link>
           </div>
-          <div className="flex justify-center items-center py-5">
-            {/* <Image
-              src="/logowhite.png"
-              width={100}
-              height={100}
-              className=""
-              alt=" Logo"
-            /> */}
+          <div className="flex justify-center items-center py-5 ">
             <span>Made by casaLabs</span>
           </div>
         </div>
