@@ -4,10 +4,7 @@ import Image from "next/image";
 export const Roadmap = () => {
   return (
     <div className="flex justify-center">
-      <div
-        id="roadmap"
-        className="box-border flex-col 2xl:h-[2200px] 2xl:w-[1540px] md:h-[1600px] md:w-[800px] px-6 pt-6 lg:px-10 justify-center text-white bg-no-repeat bg-roadmap2 bg-contain bg-center "
-      >
+      <div className="hidden box-border flex-col 2xl:h-[2200px] 2xl:w-[1540px] md:h-[1600px] md:w-[800px] px-6 pt-6 lg:px-10 justify-center text-white bg-no-repeat bg-roadmap2 bg-contain bg-center ">
         <div className="flex-col object-contain ">
           <div className="flex object-cover justify-center  ">
             <div className="flex-col pt-[300px]">
@@ -83,6 +80,8 @@ export const Roadmap = () => {
           </div>
         </div>
       </div>
+      <div></div>
+      <div className="block bg-roadEmpty bg-contain w-[400px] h-auto bg-center"></div>
     </div>
   );
 };

@@ -9,23 +9,23 @@ import {
 
 export const NavBar = () => {
   return (
-    <nav className=" px-2 sm:px-4 py-4 fixed w-full z-20 top-0 left-0 ">
-      <div className="container flex flex-wrap items-center justify-between mx-auto">
-        <Link href="#Home" className="flex items-center">
+    <nav className=" px-2 sm:px-4 py-4 fixed w-full z-10 flex bg-[rgba(0,0,0,0.5);]  ">
+      <div className="container flex flex-wrap items-center justify-between mx-auto opacity-100 z-60">
+        <Link href="#Home" className="flex items-center opacity-100 z-60">
           <Image
             src="/logo.png"
             width={50}
             height={50}
-            className=""
+            className="opacity-100 z-60"
             alt=" Logo"
           />
-          <span className="self-center text-[30px] font-bold text-white px-2">
+          <span className="self-center text-[30px] font-bold text-white px-2 opacity-100 z-60">
             Suino
           </span>
         </Link>
         <div className="flex">
           <div className="flex md:order-2">
-            <div className="lg:ml-5 lg:min-w-0 lg:justify-end lg:hidden md:flex">
+            <div className="lg:ml-5 lg:min-w-0 lg:justify-end lg:hidden md:flex opacity-100 z-60">
               <Link
                 href="game"
                 className="inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 bg-yellow-600 text-white shadow-sm ring-1 ring-gray-900/10 hover:ring-gray-900/20 hover:bg-yellow-800"
