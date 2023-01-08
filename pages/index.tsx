@@ -26,7 +26,7 @@ const Home = () => {
       </Head>
       {isClicked ? (
         <div>
-          <div className="flex items-center justify-center w-full h-screen ">
+          <div className="flex items-center justify-center w-full h-screen">
             <div className="absolute top-0 left-0 bottom-0 right-0 w-screen bg-cover bg-mainwrapper opacity-50 z-0"></div>
             <button
               onClick={handleClick}
@@ -59,7 +59,7 @@ const Home = () => {
                   <div className="flex justify-center">
                     <div
                       id="seven"
-                      className="flex-col h-[2200px] w-[1540px] px-6 pt-6 lg:px-10 justify-center text-white bg-no-repeat bg-Comments bg-cover bg-center"
+                      className="flex-col h-[750px] w-full px-6 pt-6 lg:px-10 justify-center text-white bg-no-repeat bg-Comments bg-contain  bg-center"
                     />
                   </div>
                 </div>
