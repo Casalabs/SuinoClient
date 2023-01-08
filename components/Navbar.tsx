@@ -9,7 +9,7 @@ import {
 
 export const NavBar = () => {
   return (
-    <nav className=" px-2 sm:px-4 py-4 fixed w-full z-10 flex bg-[rgba(0,0,0,0.5);]  ">
+    <nav className=" px-2 sm:px-4 py-3 fixed w-full z-10 flex bg-[rgba(0,0,0,0.5);] ㅇ">
       <div className="container flex flex-wrap items-center justify-between mx-auto opacity-100 z-60">
         <Link href="#Home" className="flex items-center opacity-100 z-60">
           <Image

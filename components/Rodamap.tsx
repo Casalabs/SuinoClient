@@ -6,7 +6,7 @@ export const Roadmap = () => {
     <div className="flex justify-center">
       <div
         id="roadmap"
-        className="hidden box-border flex-col h-[2200px] w-[1540px]  px-6 pt-6 lg:px-10 justify-center text-white bg-no-repeat bg-roadmap2 bg-cover bg-center "
+        className="  2xl:block xl:block lg:block sm:hidden box-border flex-col  h-[2200px] w-[1540px]  px-6 pt-6 lg:px-10 justify-center text-white bg-no-repeat bg-roadmap2 bg-cover bg-center "
       >
         {" "}
         <div className="flex-col object-contain ">
@@ -84,7 +84,7 @@ export const Roadmap = () => {
           </div>
         </div>
       </div>
-      <div className="box-border flex-col w-full h-[1635px]  px-6 pt-6 lg:px-10 justify-center text-white bg-no-repeat bg-roadEmpty bg-auto bg-center">
+      <div className="box-border 2xl:hidden xl:hidden lg:hidden sm:flex-col w-full h-[1635px]  px-6 pt-6 lg:px-10 justify-center text-white bg-no-repeat bg-roadEmpty bg-auto bg-center">
         <div className="flex justify-center text-black text-[40px] mt-[50px] font-Wood font-bold">
           Suino RoadMap
         </div>
