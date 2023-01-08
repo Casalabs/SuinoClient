@@ -16,7 +16,7 @@ export const HomeComponent = () => {
               <div className="h-[50px] mt-8 gap-x-5 sm:justify-center flex items-center  justify-center">
                 <Link
                   href="game"
-                  className="flex justify-center items-center rounded-lg bg-yellow-600 px-4 py-1.5 text-[20px]  leading-7 text-white shadow-sm  hover:bg-yellow-800"
+                  className="flex justify-center items-center rounded-lg bg-yellow-600 px-4 py-3 text-[20px]  leading-7 text-white shadow-sm  hover:bg-yellow-800"
                 >
                   Launch app
                   <span className="text-indigo-200" aria-hidden="true">

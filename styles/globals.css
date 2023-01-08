@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+type: .fp-watermark {
+  display: none !important;
+}
+.fp-watermark > a {
+  display: none !important;
+}
