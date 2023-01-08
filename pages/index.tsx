@@ -44,7 +44,7 @@ const Home = () => {
             licenseKey={"U04K9-ZTA9I-XQJ2J-L53PK-YJCTN"}
             scrollingSpeed={500}
             anchors={["Home", "Story", "Roadmap", "Seven", "faq"]}
-            responsiveWidth={790}
+            responsiveWidth={600}
             render={(_comp) => (
               <ReactFullpage.Wrapper>
                 <div className="section">

@@ -5,7 +5,7 @@ export const HomeComponent = () => {
     <div className="flex md:w-[500px md:h-auto]">
       <div
         id="home"
-        className="flex-col w-full h-[90%]  bg-firstbg bg-no-repeat  bg-auto bg-center box-border"
+        className="flex-col w-full h-[90%] md:w-[520px]  bg-firstbg bg-no-repeat  bg-auto bg-center "
       >
         <div className="flex items-center w-full h-screen justify-center">
           <div className="mb-[150px]">
