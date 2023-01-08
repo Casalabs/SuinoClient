@@ -2,7 +2,7 @@ export const Feature = () => {
   return (
     <div id="feature" className="flex-col">
       <div className="bg-mainwrapper flex-col items-center justify-center  bg-center bg-no-repeat xl:bg-cover xl:h-screen z-0  md:flex md:h-1/2">
-        <div className="flex-col w-2/3 text-white  py-[100px] px-[40px] xl:block md:hidden">
+        <div className="flex-col w-2/3 text-white  py-[100px] px-[40px] xl:block md:hidden sm:hidden">
           <div className="bg-[rgba(0,0,0,0.7);] px-[50px] py-6 mb-[100px]">
             <div className="flex text-[30px] text-[#fff] font-serif opacity-100 pb-6 justify-center z-20 hover:text-white py-3">
               SUINO is the story of the lives of pigs who live like humans mixed
