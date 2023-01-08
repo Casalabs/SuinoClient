@@ -2,8 +2,8 @@ import Image from "next/image";
 export const Feature = () => {
   return (
     <div id="feature" className="flex-col mt-[100px]">
-      {/* <div className="bg-mainwrapper flex-col items-center justify-center  bg-center bg-no-repeat xl:bg-cover xl:h-screen z-0 md:bg-contain md:flex md:h-1/2 hidden">
-        <div className="flex-col w-2/3 text-white  py-[100px] px-[40px] hidden">
+      <div className="2xl:block xl:block lg:block sm:hidden bg-mainwrapper flex-col items-center justify-center  bg-center bg-no-repeat 2xl:bg-cover xl:bg-cover lg:bg-cover xl:h-screen z-0 sm:bg-contain">
+        <div className="flex-col w-2/3 text-white  py-[100px] px-[40px]">
           <div className="bg-[rgba(0,0,0,0.7);] px-[50px] py-6 mb-[100px]">
             <div className="flex text-[30px] text-[#fff] font-serif opacity-100 pb-6 justify-center z-20 hover:text-white py-3">
               SUINO is the story of the lives of pigs who live like humans mixed
@@ -28,10 +28,10 @@ export const Feature = () => {
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
       <div
         className="
-bg-[rgba(0,0,0,0.5);] flex-col w-full text-white  z-10 2xl:mt-[80px]  h-screen"
+bg-[rgba(0,0,0,0.5);] flex-col w-full text-white  z-10 2xl:mt-[80px]  h-screen 2xl:hidden xl:hidden lg:hidden sm:flex-col"
       >
         <Image
           src="/landing/wrapper.png"
