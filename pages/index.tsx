@@ -62,7 +62,7 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="section">
-                  <div className="flex-col w-full h-screen  px-6 pt-6 lg:px-10 justify-center text-white  bg-cover md:bg-none bg-brandbackground">
+                  <div className="flex-col w-full h-screen  px-6 pt-6 lg:px-10 justify-center  text-white ">
                     <Faqs />
                   </div>
                 </div>
