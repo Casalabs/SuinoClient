@@ -203,6 +203,7 @@ export const NavBar = () => {
             <Link
               href="#Story"
               className="block py-4 pl-3 pr-4 text-white  hover:text-gray-600   md:p-0  text-[18px] "
+              aria-current="page"
             >
               Story
             </Link>
@@ -211,29 +212,32 @@ export const NavBar = () => {
             <Link
               href="#Roadmap"
               className="block py-4 pl-3 pr-4 text-white  hover:text-gray-600   md:p-0 text-[18px] "
+              aria-current="page"
             >
               Roadmap
             </Link>
           </li>
           <li>
             <Link
-              href="#Seven"
+              href="#Commandments"
               className="block py-4 pl-3 pr-4 text-white  hover:text-gray-600   md:p-0 text-[18px] "
+              aria-current="page"
             >
               Commandments
             </Link>
           </li>
           <li>
             <Link
-              href="#faq"
+              href="#FAQ"
               className="block py-4 pl-3 pr-4 text-white  hover:text-gray-600   md:p-0 text-[18px] "
+              aria-current="page"
             >
               FAQ
             </Link>
           </li>{" "}
           <li>
             <Link
-              href="#faq"
+              href="#"
               className="block py-2 pl-3 pr-4 text-white  hover:text-gray-600   md:p-0 text-[18px] "
             >
               Docs

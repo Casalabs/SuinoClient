@@ -24,9 +24,6 @@ const Home = () => {
       <Head>
         <title>Suino</title>
         <meta name="description" content="Suino" />
-        <Link rel="stylesheet" type="text/css" href="fullpage.css" />
-
-        <Script type="text/javascript" src="fullpage.js"></Script>
       </Head>
       {isClicked ? (
         <div>
@@ -49,7 +46,7 @@ const Home = () => {
             scrollingSpeed={500}
             responsiveWidth={500}
             scrollOverflow={true}
-            anchors={["Home", "Story", "Roadmap", "Seven", "faq"]}
+            anchors={["Home", "Story", "Roadmap", "Commandments", "FAQ"]}
             render={({ state, fullpageApi }) => (
               <ReactFullpage.Wrapper>
                 <div className="section skill__section fp-auto-heigh fp-auto-height-responsive">
@@ -61,14 +58,17 @@ const Home = () => {
                 <div className="section">
                   <Roadmap />
                 </div>
-                <div className="section skill__section fp-auto-heigh fp-auto-height-responsive">
-                  <div className="flex justify-center">
-                    <div className="2xl:hidden xl:hidden lg:hidden sm:flex-col h-[750px] w-full px-6 pt-6 lg:px-10 justify-center text-white bg-no-repeat bg-Comments bg-contain  bg-center" />
+                <div
+                  id="Commandments"
+                  className="section skill__section fp-auto-heigh fp-auto-height-responsive"
+                >
+                  <div className="flex justify-center" id="Commandments">
+                    <div className="2xl:hidden xl:hidden lg:hidden sm:flex-col h-[650px] w-full px-6 pt-6 lg:px-10 justify-center text-white bg-no-repeat bg-Comments bg-contain  bg-center" />
                     <div className="2xl:block xl:block lg:block sm:hidden h-[2200px] w-[1540px] px-6 pt-6 lg:px-10 justify-center text-white bg-no-repeat bg-Comments bg-cover  bg-center" />
                   </div>
                 </div>
-                <div className="section skill__section fp-auto-heigh fp-auto-height-responsive">
-                  <div className="flex-col w-full h-screen  px-6 pt-6 lg:px-10 justify-center  text-white ">
+                <div className="section skill__section fp-auto-heigh fp-auto-height-responsive bg-black">
+                  <div className="flex-col w-full h-screen  px-6 pt-6 lg:px-10 justify-center  text-white bg-black">
                     <Faqs />
                   </div>
                 </div>

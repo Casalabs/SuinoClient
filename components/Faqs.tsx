@@ -56,7 +56,10 @@ export const Faqs = () => {
   };
 
   return (
-    <div className="flex-col w-full  h-screen justify-center item-center">
+    <div
+      className="flex-col w-full  h-screen justify-center item-center bg-black"
+      id="FAQ"
+    >
       <div className="sm:h-auto 2xl:h-2/5">
         <div className="flex justify-center 2xl:mt-[200px] xl:mt-[200px] sm:mt-[50px]">
           <p className="text-[5rem] font-bold  ">FAQ</p>
