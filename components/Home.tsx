@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export const HomeComponent = () => {
   return (
-    <div className="flex">
+    <div className="flex" id="Home">
       <div className="flex-col w-full h-full items-center justify-center">
         <div className="flex items-center w-full h-screen justify-center bg-firstbg  bg-no-repeat 2xl:bg-cover xl:bg-cover sm:bg-contain sm:mt-[80px] m-auto">
           <div className="2xl:mb-[150px] sm:mb-0">

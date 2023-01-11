@@ -6,7 +6,7 @@ import {
   faDiscord,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import { faB, faBars } from "@fortawesome/free-solid-svg-icons";
+import { faB, faBars, faX } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
 export const NavBar = () => {
@@ -29,38 +29,127 @@ export const NavBar = () => {
         <div className="flex">
           <div className="flex md:order-2">
             <div className="2xl:hidden lg:ml-5 lg:min-w-0 lg:justify-end lg:hidden md:hidden sm:flex opacity-100 z-60">
-              <Link
-                href="game"
-                className="inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 bg-yellow-600 text-white shadow-sm ring-1 ring-gray-900/10 hover:ring-gray-900/20 hover:bg-yellow-800"
-              >
-                Launch app
-              </Link>
-              <div className="w-11/12 flex justify-end items-center">
-                <div
-                  className="group z-50 relative w-6 h-6 mt-10 cursor-pointer flex-col justify-between items-center flex"
-                  onClick={() => {
-                    setOpen(!open);
-                  }}
-                >
+              <div className="w-full  flex items-center">
+                <div className="group z-50 relative w-6 h-11  cursor-pointer flex-col items-center flex">
                   <FontAwesomeIcon
                     icon={faBars}
-                    className="text-white text-2xl px-3 py-1.5"
+                    className={`flex text-[25px] px-3 py-1.5 w-[30px] text-white cursor-pointer transform transition duration-300 ease-in-out ${
+                      open ? " hidden" : ""
+                    }`}
+                    onClick={() => {
+                      setOpen(!open);
+                    }}
                   />
-                  <span
-                    className={`h-1 w-full bg-black rounded-lg group-hover:text-black cursor-pointer transform transition duration-300 ease-in-out ${
-                      open ? "rotate-45 translate-y-2.5" : ""
+                  <div
+                    className={`fixed w-full h-screen bg-[rgb(0,0,0)] left-0 top-0  px-11${
+                      open ? "" : "  hidden"
                     }`}
-                  ></span>
-                  <span
-                    className={`h-1 w-full bg-black rounded-lg group-hover:text-black cursor-pointer transform transition duration-300 ease-in-out ${
-                      open ? "w-0" : "w-full"
-                    }`}
-                  ></span>
-                  <span
-                    className={`h-1 w-full bg-black rounded-lg group-hover:text-black cursor-pointer transform transition duration-300 ease-in-out ${
-                      open ? "rotate-45 -translate-y-2.5" : ""
-                    }`}
-                  ></span>
+                  >
+                    <div className="flex-col w-full h-screen ">
+                      <div
+                        className={`flex w-full justify-end text-[25px] py-3  mr-0 ml-[40px] text-white cursor-pointer transform transition duration-300 ease-in-out ${
+                          open ? "" : "  hidden"
+                        }`}
+                      >
+                        <FontAwesomeIcon
+                          icon={faX}
+                          className={`flex text-[25px] py-3 px-3 mr-0 text-white cursor-pointer transform transition duration-300 ease-in-out ${
+                            open ? "" : "  hidden"
+                          }`}
+                          onClick={() => {
+                            setOpen(!open);
+                          }}
+                        />
+                      </div>
+                      <Link href="#Home">
+                        {" "}
+                        <span
+                          className={`flex justify-center text-[30px] py-3 h-[5rem] w-full rounded-lg text-white cursor-pointer transform transition duration-300 ease-in-out ${
+                            open ? "" : "hidden"
+                          }`}
+                          onClick={() => {
+                            setOpen(!open);
+                          }}
+                        >
+                          Home
+                        </span>
+                      </Link>
+                      <Link href="#Story">
+                        {" "}
+                        <span
+                          className={`flex justify-center text-[30px] py-3 h-[5rem] w-full rounded-lg text-white cursor-pointer transform transition duration-300 ease-in-out ${
+                            open ? "" : "hidden"
+                          }`}
+                          onClick={() => {
+                            setOpen(!open);
+                          }}
+                        >
+                          Story
+                        </span>
+                      </Link>
+                      <Link href="#Roadmap">
+                        <span
+                          className={`flex justify-center text-[30px] py-3 h-[5rem] w-full  rounded-lg text-white cursor-pointer transform transition duration-300 ease-in-out ${
+                            open ? "" : "hidden"
+                          }`}
+                          onClick={() => {
+                            setOpen(!open);
+                          }}
+                        >
+                          Roadmap
+                        </span>
+                      </Link>
+                      <Link href="#Commandments">
+                        <span
+                          className={`flex justify-center text-[30px] py-3 h-[5rem] w-full  rounded-lg text-white cursor-pointer transform transition duration-300 ease-in-out ${
+                            open ? "" : "hidden"
+                          }`}
+                          onClick={() => {
+                            setOpen(!open);
+                          }}
+                        >
+                          Commandments
+                        </span>
+                      </Link>
+                      <Link href="#FAQ">
+                        <span
+                          className={` flex justify-center text-[30px] py-3 h-[5rem] w-full  rounded-lg text-white cursor-pointer transform transition duration-300 ease-in-out ${
+                            open ? "" : "hidden"
+                          }`}
+                          onClick={() => {
+                            setOpen(!open);
+                          }}
+                        >
+                          FAQ
+                        </span>
+                      </Link>
+                      <Link href="#">
+                        <span
+                          className={` flex justify-center text-[30px] py-3 h-[5rem] w-full  rounded-lg text-white cursor-pointer transform transition duration-300 ease-in-out ${
+                            open ? "" : "hidden"
+                          }`}
+                          onClick={() => alert("Coming soon!")}
+                        >
+                          Docs
+                        </span>
+                      </Link>
+
+                      <div
+                        className={` flex justify-center item-center  px-3 py-3  h-[5rem]  ${
+                          open ? "" : "hidden"
+                        }`}
+                      >
+                        <Link
+                          href="game"
+                          className={` flex justify-center item-center rounded-2xl px-3 py-4  text-xl font-semibold leading-6 bg-yellow-600 text-white shadow-sm ring-1 ring-gray-900/10 hover:ring-gray-900/20 hover:bg-yellow-800 ${
+                            open ? "" : "hidden"
+                          }`}
+                        >
+                          Launch app
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

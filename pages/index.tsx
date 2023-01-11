@@ -46,8 +46,8 @@ const Home = () => {
           <ReactFullpage
             licenseKey={"U04K9-ZTA9I-XQJ2J-L53PK-YJCTN"}
             navigation
-            navigationTooltips={["Home", "Story", "Roadmap", "Seven", "faq"]}
             scrollingSpeed={500}
+            responsiveWidth={500}
             scrollOverflow={true}
             anchors={["Home", "Story", "Roadmap", "Seven", "faq"]}
             render={({ state, fullpageApi }) => (
