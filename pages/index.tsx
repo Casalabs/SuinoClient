@@ -44,6 +44,7 @@ const Home = () => {
             licenseKey={"U04K9-ZTA9I-XQJ2J-L53PK-YJCTN"}
             scrollingSpeed={500}
             responsiveWidth={500}
+            autoScrolling={false}
             render={({ state, fullpageApi }) => (
               <ReactFullpage.Wrapper>
                 <div className="section skill__section fp-auto-heigh fp-auto-height-responsive">
@@ -62,6 +63,9 @@ const Home = () => {
                   <div className="flex-col w-full h-screen  px-6 pt-6 lg:px-10 justify-center  text-white bg-black">
                     <Faqs />
                   </div>
+                </div>
+                <div className="hidden">
+                  <div className="section hidden w-0 h-0"></div>
                 </div>
               </ReactFullpage.Wrapper>
             )}
