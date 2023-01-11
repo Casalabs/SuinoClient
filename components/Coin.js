@@ -6,18 +6,18 @@ function Coins() {
   function onClick(num) {
     if (coin.length >= num) {
       //3 -> 1
-      console.log(num);
+     
       const newCoin = coin?.slice(0, num); //[0,0,0]
-      console.log(newCoin);
-      console.log("slice");
+     
+    
       setCoin(newCoin);
     } else {
       const newCoin = coin?.slice();
       for (let i = 0; i < num - coin.length; i++) {
         newCoin.push(0);
       }
-      console.log(newCoin);
-      console.log("push");
+     
+   
       setCoin(newCoin);
     }
   }
@@ -31,9 +31,39 @@ function Coins() {
         }}
       >
         {value == 0 ? (
-          <Image src="/game/CoinHead.png" width={280} height={280} alt="coin" />
+          <>
+            <Image
+              src="/game/CoinHead.png"
+              width={280}
+              height={280}
+              alt="coin"
+              className=" 2xl:block xl:block sm:hidden"
+            />
+            <Image
+              src="/game/CoinHead.png"
+              width={140}
+              height={140}
+              alt="coin"
+              className="2xl:hidden xl:hidden sm:block"
+            />
+          </>
         ) : (
-          <Image src="/game/CoinTail.png" width={280} height={280} alt="coin" />
+          <>
+            <Image
+              src="/game/CoinTail.png"
+              width={280}
+              height={280}
+              alt="coin"
+              className=" 2xl:block xl:block sm:hidden"
+            />
+            <Image
+              src="/game/CoinTail.png"
+              width={140}
+              height={140}
+              alt="coin"
+              className="2xl:hidden xl:hidden sm:block"
+            />
+          </>
         )}
       </div>
     );
@@ -44,11 +74,11 @@ function Coins() {
 
     if (newCoin[index] == 0) {
       newCoin[index] = 1;
-      console.log(newCoin);
+
       setCoin(newCoin);
     } else {
       newCoin[index] = 0;
-      console.log(newCoin);
+
       setCoin(newCoin);
     }
   }
@@ -70,7 +100,18 @@ function Coins() {
           width={150}
           height={60}
           alt="btn"
-          className=" px-3 hover:translate-y-1 cursor-pointer"
+          className=" px-3 hover:translate-y-1 cursor-pointer 2xl:block xl:block sm:hidden"
+        />
+        <Image
+          value={1}
+          onClick={() => {
+            onClick(1);
+          }}
+          src="/game/single.png"
+          width={100}
+          height={40}
+          alt="btn"
+          className=" px-3 hover:translate-y-1 cursor-pointer 2xl:hidden xl:hidden sm:block"
         />
         <Image
           value={2}
@@ -81,7 +122,18 @@ function Coins() {
           width={150}
           height={60}
           alt="btn"
-          className=" px-3 hover:translate-y-1 cursor-pointer"
+          className=" px-3 hover:translate-y-1 cursor-pointer  2xl:block xl:block sm:hidden"
+        />
+        <Image
+          value={2}
+          onClick={() => {
+            onClick(2);
+          }}
+          src="/game/double.png"
+          width={100}
+          height={40}
+          alt="btn"
+          className=" px-3 hover:translate-y-1 cursor-pointer 2xl:hidden xl:hidden sm:block"
         />
         <Image
           value={3}
@@ -92,7 +144,18 @@ function Coins() {
           width={150}
           height={60}
           alt="btn"
-          className=" px-3 hover:translate-y-1 cursor-pointer"
+          className=" px-3 hover:translate-y-1 cursor-pointer 2xl:block xl:block sm:hidden"
+        />
+        <Image
+          value={3}
+          onClick={() => {
+            onClick(3);
+          }}
+          src="/game/triple.png"
+          width={100}
+          height={40}
+          alt="btn"
+          className=" px-3 hover:translate-y-1 cursor-pointer 2xl:hidden xl:hidden sm:block"
         />
       </div>
     </div>

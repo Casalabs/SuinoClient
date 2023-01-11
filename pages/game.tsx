@@ -14,12 +14,12 @@ const GamePage = () => {
   const provider = new JsonRpcProvider(Network.DEVNET);
   const [suiValue, setSuiValue] = useState(0);
   const betAmount = suiValue * 1000000;
+
   let currentWallet: readonly WalletAccount[] | { address: string }[] = [];
   if (wallet.connected) {
     currentWallet = wallet?.getAccounts();
   }
-
-  async function handleSignAndExecuteTx(betAmount: number, betValue: any) {
+  const handleSignAndExecuteTx = async (betAmount: number, betValue: any) => {
     if (!wallet?.connected) return;
     const balance = await provider?.getCoinBalancesOwnedByAddress(
       currentWallet[0].address
@@ -47,6 +47,7 @@ const GamePage = () => {
     const maxSuiObj = Object.assign(max)?.details?.reference?.objectId;
 
     try {
+      console.log(currentWallet[0].address, "wallet");
       const resData = await wallet.signAndExecuteTransaction({
         transaction: {
           kind: "moveCall",
@@ -92,11 +93,12 @@ const GamePage = () => {
           console.log("error");
         }
       }
-      // if (event != undefined) alert("congrats, your betting comes to you!");
+      if (event != undefined) alert("congrats, your betting comes to you!");
     } catch (e) {
       console.error("nft mint failed", e);
     }
-  }
+  };
+
   return (
     <div className="isolate bg-[#050C08]">
       <Head>
@@ -104,7 +106,7 @@ const GamePage = () => {
         <meta name="description" content="Suino" />
         <Link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="absolute bg-[#000] opacity-80 top-0 left-0 w-screen  px-6 py-3 ">
+      <div className="absolute bg-[#000] opacity-80 top-0 left-0 w-screen  px-6 py-3 overflow-y-auto overflow-x-auto ">
         <div>
           <nav className="" aria-label="Global">
             <div className="flex  lg:min-w-0 lg:flex-1" aria-label="Global">
@@ -123,15 +125,15 @@ const GamePage = () => {
                   DashBoard
                 </Link>
                 <div></div>
-                <div className="flex w-[500px]h-[190px]opacity-100 ">
-                  <ConnectButton className="opacity-100" />
+                <div className="flex w-[500px]h-[190px]opacity-100 z-99 ">
+                  <ConnectButton className="opacity-100 z-99" />
                 </div>
               </div>
             </div>
           </nav>
         </div>
       </div>
-      <div className="flex w-full h-screen">
+      <div className="flex w-full h-screen overflow-y-auto overflow-x-auto z-0">
         <div className="flex-col w-full h-screen text-white bg-gamewrapper  bg-no-repeat bg-cover bg-center ">
           <div className="flex-col  w-full h-3/7 justify-center items-end ">
             <div className="flex justify-center ">
@@ -145,9 +147,9 @@ const GamePage = () => {
               Bet Currency
             </div>
 
-            <div className="flex w-[300px]h-[190px]  items-center justify-center text-black">
+            <div className="flex w-[300px]h-[190px] items-center justify-center text-black">
               <div
-                className="bg-cover bg-center h-[80px]"
+                className="bg-cover bg-center 2xl:h-[80px]  xl:h-[80px] sm:h-[40px]"
                 onClick={() => setSuiValue(suiValue + 5)}
               >
                 <Image
@@ -155,11 +157,18 @@ const GamePage = () => {
                   width={150}
                   height={80}
                   alt="btn"
-                  className="px-3 hover:translate-y-1 cursor-pointer "
+                  className="px-3 hover:translate-y-1 cursor-pointer 2xl:block xl:block sm:hidden "
+                />
+                <Image
+                  src="/game/005sui.png"
+                  width={100}
+                  height={40}
+                  alt="btn"
+                  className="px-3 hover:translate-y-1 cursor-pointer  2xl:hidden xl:hidden sm:block "
                 />
               </div>
               <div
-                className="bg-cover bg-center h-[80px]"
+                className="bg-cover bg-center 2xl:h-[80px]  xl:h-[80px] sm:h-[40px]"
                 onClick={() => setSuiValue(suiValue + 10)}
               >
                 <Image
@@ -167,11 +176,18 @@ const GamePage = () => {
                   width={150}
                   height={80}
                   alt="btn"
-                  className="px-3 hover:translate-y-1 cursor-pointer"
+                  className="px-3 hover:translate-y-1 cursor-pointer 2xl:block xl:block sm:hidden "
+                />
+                <Image
+                  src="/game/01sui.png"
+                  width={100}
+                  height={40}
+                  alt="btn"
+                  className="px-3 hover:translate-y-1 cursor-pointer  2xl:hidden xl:hidden sm:block "
                 />
               </div>
               <div
-                className="bg-cover bg-center h-[80px]"
+                className="bg-cover bg-center 2xl:h-[80px]  xl:h-[80px] sm:h-[40px]"
                 onClick={() => setSuiValue(suiValue + 25)}
               >
                 <Image
@@ -179,13 +195,20 @@ const GamePage = () => {
                   width={150}
                   height={80}
                   alt="btn"
-                  className="px-3 hover:translate-y-1 cursor-pointer"
+                  className="px-3 hover:translate-y-1 cursor-pointer 2xl:block xl:block sm:hidden "
+                />
+                <Image
+                  src="/game/0025sui.png"
+                  width={100}
+                  height={40}
+                  alt="btn"
+                  className="px-3 hover:translate-y-1 cursor-pointer  2xl:hidden xl:hidden sm:block "
                 />
               </div>
             </div>
             <div className="flex w-[300px]h-[50px] py-[-10px]  items-center justify-center text-black">
               <div
-                className="bg-cover bg-center h-[80px] py-3 "
+                className="bg-cover bg-center 2xl:h-[80px]  xl:h-[80px] sm:h-[40px] py-3 "
                 onClick={() => setSuiValue(suiValue + 50)}
               >
                 <Image
@@ -193,11 +216,18 @@ const GamePage = () => {
                   width={150}
                   height={80}
                   alt="btn"
-                  className=" px-3 hover:translate-y-1 cursor-pointer"
+                  className="px-3 hover:translate-y-1 cursor-pointer 2xl:block xl:block sm:hidden "
+                />
+                <Image
+                  src="/game/05sui.png"
+                  width={100}
+                  height={40}
+                  alt="btn"
+                  className="px-3 hover:translate-y-1 cursor-pointer  2xl:hidden xl:hidden sm:block "
                 />
               </div>
               <div
-                className="bg-cover bg-center h-[80px] py-3"
+                className="bg-cover bg-center 2xl:h-[80px]  xl:h-[80px] sm:h-[40px] py-3"
                 onClick={() => setSuiValue(suiValue + 100)}
               >
                 <Image
@@ -205,11 +235,18 @@ const GamePage = () => {
                   width={150}
                   height={80}
                   alt="btn"
-                  className=" px-3 hover:translate-y-1 cursor-pointer"
+                  className="px-3 hover:translate-y-1 cursor-pointer 2xl:block xl:block sm:hidden "
+                />
+                <Image
+                  src="/game/1sui.png"
+                  width={100}
+                  height={40}
+                  alt="btn"
+                  className="px-3 hover:translate-y-1 cursor-pointer  2xl:hidden xl:hidden sm:block "
                 />
               </div>
               <div
-                className="bg-cover bg-center h-[80px] py-3"
+                className="bg-cover bg-center 2xl:h-[80px]  xl:h-[80px] sm:h-[40px] py-3"
                 onClick={() => setSuiValue(suiValue + 200)}
               >
                 <Image
@@ -217,42 +254,53 @@ const GamePage = () => {
                   width={150}
                   height={80}
                   alt="btn"
-                  className=" px-3 hover:translate-y-1 cursor-pointer"
+                  className="px-3 hover:translate-y-1 cursor-pointer 2xl:block xl:block sm:hidden "
+                />
+                <Image
+                  src="/game/2sui.png"
+                  width={100}
+                  height={40}
+                  alt="btn"
+                  className="px-3 hover:translate-y-1 cursor-pointer  2xl:hidden xl:hidden sm:block "
                 />
               </div>
             </div>
 
-            <input className="flex bg-transparent w-14 text-center mt-8" />
-            <div className="flex justify-center item-center">
+            <div className="flex-col justify-center item-center h-auto w-full mt-9">
               <div
-                className="flex item-center justify-center mx-5 text-[30px] font-Diplomata py-5
+                className="2xl:flex xl:flex sm:flex-col item-center justify-center mx-5 2xl:text-[30px] xl:text-[30px] sm:text-[20px]  py-0
               "
               >
-                Amount
-              </div>
-              <input
-                className="flex bg-[#1f0c00] w-[200px] py-4 text-center opacity-90 rounded-md ring-black ring-1 shadow-2xl text-[40px] font-Wood"
-                value={suiValue / 100 + " " + "SUI"}
-              />
-              <div
-                className="bg-gray-500 cursor-pointer px-3 py-5"
-                onClick={() => setSuiValue(0)}
-              >
-                <span>Reset</span>
+                <span className="flex justify-center font-Diplomata py-3">
+                  Amount
+                </span>
+                <div className="flex justify-center">
+                  <input
+                    className="flex bg-[#1f0c00] text-center   opacity-90 rounded-md ring-black ring-1  2xl:text-[40px] xl:text-[40px] sm:text-[20px] font-Wood"
+                    value={suiValue / 100 + " " + "SUI"}
+                  />
+                </div>
+                <div className="flex justify-center items-center py-3">
+                  <div
+                    className="flex  items-center justify-center bg-[#1c3824] cursor-pointer h-auto w-[8rem] rounded-md px-3 py-3"
+                    onClick={() => setSuiValue(0)}
+                  >
+                    <span className="flex font-sm">Reset</span>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="flex items-center h-[50px] justify-center ">
-              <button onClick={() => handleSignAndExecuteTx(betAmount, [0])}>
-                <div className="bg-cover bg-center px-1 py-3  w-[470px] h-[80px] mt-[100px] leading-6  shadow-md">
-                  <Image
-                    src="/game/bet.png"
-                    width={470}
-                    height={80}
-                    alt="btn"
-                    className=" px-3 hover:translate-y-1 cursor-pointer"
-                  />
-                </div>
-              </button>
+              <div className="bg-cover bg-center px-1 py-3  2xl:w-[470px] 2xl:h-[80px] xl:w-[470px] xl:h-[80px] 2xl:mt-[100px] xl:mt-[100px] sm:mt-[100px] leading-6  shadow-md ">
+                <Image
+                  src="/game/bet.png"
+                  width={470}
+                  height={80}
+                  alt="btn"
+                  className=" px-3 hover:translate-y-1 cursor-pointer"
+                  onClick={() => handleSignAndExecuteTx(betAmount, [0])}
+                />
+              </div>
             </div>
           </div>
         </div>
