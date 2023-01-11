@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export const Roadmap = () => {
   return (
-    <div className="flex justify-center bg-black" id="Roadmap">
+    <div id="Roadmap" className="flex justify-center bg-black">
       {" "}
       <div className="  2xl:block xl:block lg:block sm:hidden box-border flex-col  h-[2200px] w-[1540px]  px-6 pt-6 lg:px-10 justify-center text-white bg-no-repeat bg-roadmap2 bg-cover bg-center ">
         {" "}
@@ -89,7 +89,7 @@ export const Roadmap = () => {
         <div className="flex-col object-contain  ">
           <div className="flex-col object-cover justify-center  ">
             <div className="flex justify-center">
-              <Fade direction="up">
+              <Fade direction="down">
                 <Image
                   src="/landing/mCard1.png"
                   width={320}
@@ -100,7 +100,7 @@ export const Roadmap = () => {
               </Fade>
             </div>
             <div className="flex justify-center">
-              <Fade direction="up">
+              <Fade direction="down">
                 <Image
                   src="/landing/mCard2.png"
                   width={320}
@@ -111,7 +111,7 @@ export const Roadmap = () => {
               </Fade>
             </div>
             <div className="flex justify-center">
-              <Fade direction="up">
+              <Fade direction="down">
                 <Image
                   src="/landing/mCard3.png"
                   width={320}
@@ -123,7 +123,7 @@ export const Roadmap = () => {
             </div>
 
             <div className="flex justify-center">
-              <Fade direction="up">
+              <Fade direction="down">
                 <Image
                   src="/landing/mCard4.png"
                   width={320}
@@ -134,7 +134,7 @@ export const Roadmap = () => {
               </Fade>
             </div>
             <div className="flex justify-center">
-              <Fade direction="up">
+              <Fade direction="down">
                 <Image
                   src="/landing/mCard5.png"
                   width={320}
@@ -145,7 +145,7 @@ export const Roadmap = () => {
               </Fade>
             </div>
             <div className="flex justify-center">
-              <Fade direction="up">
+              <Fade direction="down">
                 <Image
                   src="/landing/mCard6.png"
                   width={320}
