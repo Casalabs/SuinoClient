@@ -44,7 +44,6 @@ const Home = () => {
             licenseKey={"U04K9-ZTA9I-XQJ2J-L53PK-YJCTN"}
             scrollingSpeed={500}
             responsiveWidth={500}
-            autoScrolling={false}
             render={({ state, fullpageApi }) => (
               <ReactFullpage.Wrapper>
                 <div className="section skill__section fp-auto-heigh fp-auto-height-responsive">
