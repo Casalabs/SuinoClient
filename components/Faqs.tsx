@@ -60,7 +60,7 @@ export const Faqs = () => {
       id="FAQ"
       className="flex-col w-full  h-2/3 justify-center item-center bg-black"
     >
-      <div className="sm:h-auto 2xl:h-2/5">
+      <div className="h-auto">
         <div className="flex justify-center 2xl:mt-[200px] xl:mt-[200px] sm:mt-[50px]">
           <p className="text-[5rem] font-bold  ">FAQ</p>
         </div>

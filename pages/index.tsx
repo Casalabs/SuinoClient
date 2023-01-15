@@ -10,7 +10,6 @@ import { NavBar } from "../components/Navbar";
 import { HomeComponent } from "../components/Home";
 import { Feature } from "../components/Feture";
 import { Roadmap } from "../components/Rodamap";
-import Script from "next/script";
 
 const Home = () => {
   const [isClicked, setIsClicked] = useState<boolean>(true);
@@ -59,7 +58,7 @@ const Home = () => {
                     <div className="2xl:hidden xl:hidden lg:hidden sm:flex-col h-[650px] w-full px-6 pt-6 lg:px-10 justify-center text-white bg-no-repeat bg-Comments bg-contain  bg-center" />
                     <div className="2xl:block xl:block lg:block sm:hidden h-[2200px] w-[1540px] px-6 pt-6 lg:px-10 justify-center text-white bg-no-repeat bg-Comments bg-cover  bg-center" />
                   </div>
-                  <div className="flex-col w-full h-screen  px-6 pt-6 lg:px-10 justify-center  text-white bg-black">
+                  <div className="flex-col w-full h-screen  px-6 pt-6  justify-center  text-white bg-black">
                     <Faqs />
                   </div>
                 </div>

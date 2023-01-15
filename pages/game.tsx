@@ -59,10 +59,18 @@ const GamePage = () => {
             function: "bet",
             typeArguments: [],
             arguments: [
-              process.env.FLIP,
-              process.env.CORE,
-              process.env.TREASURY,
-              process.env.LOTTERY,
+              //FlIP
+              //process.env.FLIP,
+              "0xc33f246948d95dc90b2daeb8fab77147c838b0de",
+              //CORE
+              // process.env.CORE,
+              "0xdcf61e9c462fe7d084d5d09a628723a272ac5fc5",
+              //TREASURY
+              // process.env.TREASURY,
+              "0xc1e9491eecd0e26a28d8d6ae8ed1a28497fa79ca",
+              //LOTTERY
+              // process.env.LOTTERY,
+              "0xb9356021eb54189eb853c09d7088433c9a35c447",
               maxSuiObj,
               String(betAmount),
               betValue.map((number: number) => String(number)),
