@@ -1,23 +1,24 @@
 import { useState } from "react";
 import Image from "next/image";
 import React from "react";
+import useSound from "use-sound";
 function Coins() {
   const [coin, setCoin] = useState([0]);
+  const [coinPlay] = useSound("/game/music/coin.mp3");
+  const [moneyPlay] = useSound("/game/music/money.mp3");
   function onClick(num) {
     if (coin.length >= num) {
       //3 -> 1
-     
+
       const newCoin = coin?.slice(0, num); //[0,0,0]
-     
-    
+
       setCoin(newCoin);
     } else {
       const newCoin = coin?.slice();
       for (let i = 0; i < num - coin.length; i++) {
         newCoin.push(0);
       }
-     
-   
+
       setCoin(newCoin);
     }
   }
@@ -38,6 +39,7 @@ function Coins() {
               height={280}
               alt="coin"
               className=" 2xl:block xl:block sm:hidden"
+              onClick={coinPlay}
             />
             <Image
               src="/game/CoinHead.png"
@@ -45,6 +47,7 @@ function Coins() {
               height={140}
               alt="coin"
               className="2xl:hidden xl:hidden sm:block"
+              onClick={coinPlay}
             />
           </>
         ) : (
@@ -55,6 +58,7 @@ function Coins() {
               height={280}
               alt="coin"
               className=" 2xl:block xl:block sm:hidden"
+              onClick={coinPlay}
             />
             <Image
               src="/game/CoinTail.png"
@@ -62,6 +66,7 @@ function Coins() {
               height={140}
               alt="coin"
               className="2xl:hidden xl:hidden sm:block"
+              onClick={coinPlay}
             />
           </>
         )}

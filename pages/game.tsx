@@ -8,13 +8,15 @@ import { useWallet } from "@suiet/wallet-kit";
 import { JsonRpcProvider, Network } from "@mysten/sui.js";
 import Link from "next/link";
 import { WalletAccount } from "@wallet-standard/base";
+import useSound from "use-sound";
 
 const GamePage = () => {
   const wallet = useWallet();
   const provider = new JsonRpcProvider(Network.DEVNET);
   const [suiValue, setSuiValue] = useState(0);
   const betAmount = suiValue * 1000000;
-
+  const [moneyPlay] = useSound("/game/music/money.mp3");
+  const [betPlay] = useSound("/game/music/bet.mp3");
   let currentWallet: readonly WalletAccount[] | { address: string }[] = [];
   if (wallet?.connected) {
     currentWallet = wallet?.getAccounts();
@@ -150,7 +152,10 @@ const GamePage = () => {
             <div className="flex w-[300px]h-[190px] items-center justify-center text-black">
               <div
                 className="bg-cover bg-center 2xl:h-[80px]  xl:h-[80px] sm:h-[40px]"
-                onClick={() => setSuiValue(suiValue + 5)}
+                onClick={() => {
+                  setSuiValue(suiValue + 5);
+                  moneyPlay();
+                }}
               >
                 <Image
                   src="/game/valueBtn/001Mist.png"
@@ -169,7 +174,10 @@ const GamePage = () => {
               </div>
               <div
                 className="bg-cover bg-center 2xl:h-[80px]  xl:h-[80px] sm:h-[40px]"
-                onClick={() => setSuiValue(suiValue + 10)}
+                onClick={() => {
+                  setSuiValue(suiValue + 10);
+                  moneyPlay();
+                }}
               >
                 <Image
                   src="/game/valueBtn/005Mist.png"
@@ -188,7 +196,10 @@ const GamePage = () => {
               </div>
               <div
                 className="bg-cover bg-center 2xl:h-[80px]  xl:h-[80px] sm:h-[40px]"
-                onClick={() => setSuiValue(suiValue + 25)}
+                onClick={() => {
+                  setSuiValue(suiValue + 25);
+                  moneyPlay();
+                }}
               >
                 <Image
                   src="/game/valueBtn/01Mist.png"
@@ -209,7 +220,10 @@ const GamePage = () => {
             <div className="flex w-[300px]h-[50px] py-[-10px]  items-center justify-center text-black">
               <div
                 className="bg-cover bg-center 2xl:h-[80px]  xl:h-[80px] sm:h-[40px] py-3 "
-                onClick={() => setSuiValue(suiValue + 50)}
+                onClick={() => {
+                  setSuiValue(suiValue + 50);
+                  moneyPlay();
+                }}
               >
                 <Image
                   src="/game/valueBtn/05Mist.png"
@@ -228,7 +242,10 @@ const GamePage = () => {
               </div>
               <div
                 className="bg-cover bg-center 2xl:h-[80px]  xl:h-[80px] sm:h-[40px] py-3"
-                onClick={() => setSuiValue(suiValue + 100)}
+                onClick={() => {
+                  setSuiValue(suiValue + 100);
+                  moneyPlay();
+                }}
               >
                 <Image
                   src="/game/valueBtn/1Mist.png"
@@ -247,7 +264,10 @@ const GamePage = () => {
               </div>
               <div
                 className="bg-cover bg-center 2xl:h-[80px]  xl:h-[80px] sm:h-[40px] py-3"
-                onClick={() => setSuiValue(suiValue + 200)}
+                onClick={() => {
+                  setSuiValue(suiValue + 200);
+                  moneyPlay();
+                }}
               >
                 <Image
                   src="/game/valueBtn/5Mist.png"
@@ -271,32 +291,39 @@ const GamePage = () => {
                 className="2xl:flex xl:flex sm:flex-col item-center justify-center mx-5 2xl:text-[30px] xl:text-[30px] sm:text-[20px]  py-0
               "
               >
-                <span className="flex justify-center font-Diplomata py-3">
+                <span className="flex justify-center font-Diplomata pt-3">
                   Amount
                 </span>
+                <span className="flex justify-center font-Diplomata text-sm text-gray">
+                  Mist is a small unit of sui.
+                </span>
+
                 <div className="flex justify-center">
                   <input
                     className="flex bg-[#1f0c00] text-center   opacity-90 rounded-md ring-black ring-1  2xl:text-[40px] xl:text-[40px] sm:text-[20px] font-Wood"
-                    value={suiValue / 100 + " " + "Mist"}
+                    value={suiValue / 100 + " " + "mMist"}
                   />
                 </div>
                 <div className="flex justify-center items-center py-3">
                   <div
-                    className="flex  items-center justify-center bg-reset bg-cover cursor-pointer h-auto w-[8rem] rounded-md px-3 py-8"
+                    className="flex  items-center justify-center bg-reset bg-cover cursor-pointer h-auto w-[8rem] rounded-md px-3 py-8 hover:translate-y-1"
                     onClick={() => setSuiValue(0)}
                   ></div>
                 </div>
               </div>
             </div>
             <div className="flex items-center h-[50px] justify-center ">
-              <div className="bg-cover bg-center px-1 py-3  2xl:w-[470px] 2xl:h-[80px] xl:w-[470px] xl:h-[80px] 2xl:mt-[20px] xl:mt-[20px] sm:mt-[20px] leading-6  shadow-md ">
+              <div className="bg-cover bg-center px-1 py-3  2xl:w-[470px] 2xl:h-[80px] xl:w-[470px] xl:h-[80px] 2xl:mt-[20px] xl:mt-[20px] sm:mt-[20px] leading-6  shadow-md hover:translate-y-1">
                 <Image
                   src="/game/bet.png"
                   width={470}
                   height={80}
                   alt="btn"
                   className=" px-3 hover:translate-y-1 cursor-pointer"
-                  onClick={() => handleSignAndExecuteTx(betAmount, [0])}
+                  onClick={() => {
+                    handleSignAndExecuteTx(betAmount, [0]);
+                    betPlay();
+                  }}
                 />
               </div>
             </div>
