@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 type: .fp-watermark {
   display: none !important;
 }

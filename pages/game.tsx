@@ -16,7 +16,7 @@ const GamePage = () => {
   const betAmount = suiValue * 1000000;
 
   let currentWallet: readonly WalletAccount[] | { address: string }[] = [];
-  if (wallet.connected) {
+  if (wallet?.connected) {
     currentWallet = wallet?.getAccounts();
   }
   const handleSignAndExecuteTx = async (betAmount: number, betValue: any) => {
@@ -153,14 +153,14 @@ const GamePage = () => {
                 onClick={() => setSuiValue(suiValue + 5)}
               >
                 <Image
-                  src="/game/005sui.png"
+                  src="/game/valueBtn/001Mist.png"
                   width={150}
                   height={80}
                   alt="btn"
                   className="px-3 hover:translate-y-1 cursor-pointer 2xl:block xl:block sm:hidden "
                 />
                 <Image
-                  src="/game/005sui.png"
+                  src="/game/valueBtn/001Mist.png"
                   width={100}
                   height={40}
                   alt="btn"
@@ -172,14 +172,14 @@ const GamePage = () => {
                 onClick={() => setSuiValue(suiValue + 10)}
               >
                 <Image
-                  src="/game/01sui.png"
+                  src="/game/valueBtn/005Mist.png"
                   width={150}
                   height={80}
                   alt="btn"
                   className="px-3 hover:translate-y-1 cursor-pointer 2xl:block xl:block sm:hidden "
                 />
                 <Image
-                  src="/game/01sui.png"
+                  src="/game/valueBtn/005Mist.png"
                   width={100}
                   height={40}
                   alt="btn"
@@ -191,14 +191,14 @@ const GamePage = () => {
                 onClick={() => setSuiValue(suiValue + 25)}
               >
                 <Image
-                  src="/game/0025sui.png"
+                  src="/game/valueBtn/01Mist.png"
                   width={150}
                   height={80}
                   alt="btn"
                   className="px-3 hover:translate-y-1 cursor-pointer 2xl:block xl:block sm:hidden "
                 />
                 <Image
-                  src="/game/0025sui.png"
+                  src="/game/valueBtn/01Mist.png"
                   width={100}
                   height={40}
                   alt="btn"
@@ -212,14 +212,14 @@ const GamePage = () => {
                 onClick={() => setSuiValue(suiValue + 50)}
               >
                 <Image
-                  src="/game/05sui.png"
+                  src="/game/valueBtn/05Mist.png"
                   width={150}
                   height={80}
                   alt="btn"
                   className="px-3 hover:translate-y-1 cursor-pointer 2xl:block xl:block sm:hidden "
                 />
                 <Image
-                  src="/game/05sui.png"
+                  src="/game/valueBtn/05Mist.png"
                   width={100}
                   height={40}
                   alt="btn"
@@ -231,14 +231,14 @@ const GamePage = () => {
                 onClick={() => setSuiValue(suiValue + 100)}
               >
                 <Image
-                  src="/game/1sui.png"
+                  src="/game/valueBtn/1Mist.png"
                   width={150}
                   height={80}
                   alt="btn"
                   className="px-3 hover:translate-y-1 cursor-pointer 2xl:block xl:block sm:hidden "
                 />
                 <Image
-                  src="/game/1sui.png"
+                  src="/game/valueBtn/1Mist.png"
                   width={100}
                   height={40}
                   alt="btn"
@@ -250,14 +250,14 @@ const GamePage = () => {
                 onClick={() => setSuiValue(suiValue + 200)}
               >
                 <Image
-                  src="/game/2sui.png"
+                  src="/game/valueBtn/5Mist.png"
                   width={150}
                   height={80}
                   alt="btn"
                   className="px-3 hover:translate-y-1 cursor-pointer 2xl:block xl:block sm:hidden "
                 />
                 <Image
-                  src="/game/2sui.png"
+                  src="/game/valueBtn/5Mist.png"
                   width={100}
                   height={40}
                   alt="btn"
@@ -277,21 +277,19 @@ const GamePage = () => {
                 <div className="flex justify-center">
                   <input
                     className="flex bg-[#1f0c00] text-center   opacity-90 rounded-md ring-black ring-1  2xl:text-[40px] xl:text-[40px] sm:text-[20px] font-Wood"
-                    value={suiValue / 100 + " " + "SUI"}
+                    value={suiValue / 100 + " " + "Mist"}
                   />
                 </div>
                 <div className="flex justify-center items-center py-3">
                   <div
-                    className="flex  items-center justify-center bg-[#1c3824] cursor-pointer h-auto w-[8rem] rounded-md px-3 py-3"
+                    className="flex  items-center justify-center bg-reset bg-cover cursor-pointer h-auto w-[8rem] rounded-md px-3 py-8"
                     onClick={() => setSuiValue(0)}
-                  >
-                    <span className="flex font-sm">Reset</span>
-                  </div>
+                  ></div>
                 </div>
               </div>
             </div>
             <div className="flex items-center h-[50px] justify-center ">
-              <div className="bg-cover bg-center px-1 py-3  2xl:w-[470px] 2xl:h-[80px] xl:w-[470px] xl:h-[80px] 2xl:mt-[100px] xl:mt-[100px] sm:mt-[100px] leading-6  shadow-md ">
+              <div className="bg-cover bg-center px-1 py-3  2xl:w-[470px] 2xl:h-[80px] xl:w-[470px] xl:h-[80px] 2xl:mt-[20px] xl:mt-[20px] sm:mt-[20px] leading-6  shadow-md ">
                 <Image
                   src="/game/bet.png"
                   width={470}

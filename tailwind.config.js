@@ -36,10 +36,11 @@ module.exports = {
         wallet: "url('../public/game/wallet.png') ",
         roadmap2: "url('../public/landing/Roadbg.png')",
         roadEmpty: "url('../public/landing/RoadMapEmpty.png')",
+        reset: " url('../public/game/Reset.png')",
       },
       fontFamily: {
-        Diplomata: ["cursive"],
-        NanumMyeongo: ["Nanum Myeongjo", "serif"],
+        Diplomata: ["Merriweather", "serif"],
+        NanumMyeongo: ["Nunito Sans", "sans-serif"],
         Nosifer: ["Nosifer", "cursive"],
         Wood: ["Holtwood One SC", "serif"],
         Paint: ["Finger Paint", "cursive"],
