@@ -14,7 +14,7 @@ const GamePage = () => {
   const wallet = useWallet();
   const provider = new JsonRpcProvider(Network.DEVNET);
   const [suiValue, setSuiValue] = useState(0);
-  const betAmount = suiValue * 1000000;
+  const betAmount = suiValue * 10000;
   const [moneyPlay] = useSound("/game/music/money.mp3");
   const [betPlay] = useSound("/game/music/bet.mp3");
   let currentWallet: readonly WalletAccount[] | { address: string }[] = [];
@@ -47,14 +47,15 @@ const GamePage = () => {
     });
     console.log(max, "suiObjects");
     const maxSuiObj = Object.assign(max)?.details?.reference?.objectId;
-
+    let betV = betValue.map((number: number) => String(number));
+    console.log(betV);
     try {
       console.log(currentWallet[0].address, "wallet");
       const resData = await wallet.signAndExecuteTransaction({
         transaction: {
           kind: "moveCall",
           data: {
-            packageObjectId: process.env.PACKAGE_ID,
+            packageObjectId: "0x3657ed340130a34b5e9e04acdf8b4e5c03feaa7a",
             module: "flip",
             function: "bet",
             typeArguments: [],
@@ -71,15 +72,15 @@ const GamePage = () => {
               //LOTTERY
               // process.env.LOTTERY,
               "0xb9356021eb54189eb853c09d7088433c9a35c447",
-              maxSuiObj,
+              String(maxSuiObj),
               String(betAmount),
-              betValue.map((number: number) => String(number)),
+              betV,
             ],
             gasBudget: 10000,
           },
         },
       });
-      console.log("nft minted successfully!", resData);
+      console.log("betting successfully!", resData);
       const event = resData?.effects?.events;
       if (event != undefined) {
         console.log(
@@ -105,7 +106,7 @@ const GamePage = () => {
       }
       if (event != undefined) alert("congrats, your betting comes to you!");
     } catch (e) {
-      console.error("nft mint failed", e);
+      console.error("betting failed", e);
     }
   };
 
