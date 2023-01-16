@@ -163,7 +163,7 @@ const GamePage = () => {
               <div
                 className="bg-cover bg-center 2xl:h-[80px]  xl:h-[80px] sm:h-[40px]"
                 onClick={() => {
-                  setSuiValue(suiValue + 5);
+                  setSuiValue(suiValue + 1);
                   moneyPlay();
                 }}
               >
@@ -176,6 +176,28 @@ const GamePage = () => {
                 />
                 <Image
                   src="/game/valueBtn/001Mist.png"
+                  width={100}
+                  height={40}
+                  alt="btn"
+                  className="px-3 hover:translate-y-1 cursor-pointer  2xl:hidden xl:hidden sm:block "
+                />
+              </div>
+              <div
+                className="bg-cover bg-center 2xl:h-[80px]  xl:h-[80px] sm:h-[40px]"
+                onClick={() => {
+                  setSuiValue(suiValue + 5);
+                  moneyPlay();
+                }}
+              >
+                <Image
+                  src="/game/valueBtn/005Mist.png"
+                  width={150}
+                  height={80}
+                  alt="btn"
+                  className="px-3 hover:translate-y-1 cursor-pointer 2xl:block xl:block sm:hidden "
+                />
+                <Image
+                  src="/game/valueBtn/005Mist.png"
                   width={100}
                   height={40}
                   alt="btn"
@@ -186,28 +208,6 @@ const GamePage = () => {
                 className="bg-cover bg-center 2xl:h-[80px]  xl:h-[80px] sm:h-[40px]"
                 onClick={() => {
                   setSuiValue(suiValue + 10);
-                  moneyPlay();
-                }}
-              >
-                <Image
-                  src="/game/valueBtn/005Mist.png"
-                  width={150}
-                  height={80}
-                  alt="btn"
-                  className="px-3 hover:translate-y-1 cursor-pointer 2xl:block xl:block sm:hidden "
-                />
-                <Image
-                  src="/game/valueBtn/005Mist.png"
-                  width={100}
-                  height={40}
-                  alt="btn"
-                  className="px-3 hover:translate-y-1 cursor-pointer  2xl:hidden xl:hidden sm:block "
-                />
-              </div>
-              <div
-                className="bg-cover bg-center 2xl:h-[80px]  xl:h-[80px] sm:h-[40px]"
-                onClick={() => {
-                  setSuiValue(suiValue + 25);
                   moneyPlay();
                 }}
               >
@@ -275,7 +275,7 @@ const GamePage = () => {
               <div
                 className="bg-cover bg-center 2xl:h-[80px]  xl:h-[80px] sm:h-[40px] py-3"
                 onClick={() => {
-                  setSuiValue(suiValue + 200);
+                  setSuiValue(suiValue + 500);
                   moneyPlay();
                 }}
               >
