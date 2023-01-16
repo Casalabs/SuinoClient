@@ -2,24 +2,28 @@ import { useState } from "react";
 import Image from "next/image";
 import React from "react";
 import useSound from "use-sound";
-function Coins() {
+function Coins({ setCoinV }) {
   const [coin, setCoin] = useState([0]);
   const [coinPlay] = useSound("/game/music/coin.mp3");
-  const [moneyPlay] = useSound("/game/music/money.mp3");
+
   function onClick(num) {
     if (coin.length >= num) {
       //3 -> 1
 
       const newCoin = coin?.slice(0, num); //[0,0,0]
 
+      setCoinV(newCoin);
       setCoin(newCoin);
+      console.log(newCoin, "newCoin");
     } else {
       const newCoin = coin?.slice();
       for (let i = 0; i < num - coin.length; i++) {
         newCoin.push(0);
       }
 
+      setCoinV(newCoin);
       setCoin(newCoin);
+      console.log(newCoin, "newCoin");
     }
   }
 

@@ -12,6 +12,7 @@ import useSound from "use-sound";
 
 const GamePage = () => {
   const wallet = useWallet();
+  const [CoinBetValue, setCoinValue] = useState([0]);
   const provider = new JsonRpcProvider(Network.DEVNET);
   const [suiValue, setSuiValue] = useState(0);
   const betAmount = suiValue * 10000;
@@ -55,23 +56,23 @@ const GamePage = () => {
         transaction: {
           kind: "moveCall",
           data: {
-            packageObjectId: "0x3657ed340130a34b5e9e04acdf8b4e5c03feaa7a",
+            packageObjectId: "0x4f8dc8c373defb2554f52f07655d9f3369ae9f7e",
             module: "flip",
             function: "bet",
             typeArguments: [],
             arguments: [
               //FlIP
               //process.env.FLIP,
-              "0xc33f246948d95dc90b2daeb8fab77147c838b0de",
+              "0xea16d1959559ed0755c8221b46e708b727d39a90",
               //CORE
               // process.env.CORE,
-              "0xdcf61e9c462fe7d084d5d09a628723a272ac5fc5",
+              "0x45109ae0c42c417403668eab9ee28237cd8810ff",
               //TREASURY
               // process.env.TREASURY,
-              "0xc1e9491eecd0e26a28d8d6ae8ed1a28497fa79ca",
+              "0xf84d8819dd9f7c3ac7cb91de134f5dddfdb7c4e3",
               //LOTTERY
               // process.env.LOTTERY,
-              "0xb9356021eb54189eb853c09d7088433c9a35c447",
+              "0x5d8ab8bd872288f0cefe0f9a7f5a3243ef0dc0b5",
               String(maxSuiObj),
               String(betAmount),
               betV,
@@ -149,7 +150,7 @@ const GamePage = () => {
           <div className="flex-col  w-full h-3/7 justify-center items-end ">
             <div className="flex justify-center ">
               <div className="flex mt-[120px] ">
-                <Coins />
+                <Coins setCoinV={setCoinValue} />
               </div>
             </div>
           </div>
@@ -330,7 +331,8 @@ const GamePage = () => {
                   alt="btn"
                   className=" px-3 hover:translate-y-1 cursor-pointer"
                   onClick={() => {
-                    handleSignAndExecuteTx(betAmount, [0]);
+                    handleSignAndExecuteTx(betAmount, CoinBetValue);
+                    console.log(CoinBetValue, "coinBetValue");
                     betPlay();
                   }}
                 />
