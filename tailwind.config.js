@@ -37,6 +37,7 @@ module.exports = {
         roadmap2: "url('../public/landing/Roadbg.png')",
         roadEmpty: "url('../public/landing/RoadMapEmpty.png')",
         reset: " url('../public/game/Reset.png')",
+        animation: " url('../public/game/animation/animation.gif')",
       },
       fontFamily: {
         Diplomata: ["Merriweather", "serif"],
