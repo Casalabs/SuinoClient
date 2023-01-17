@@ -10,10 +10,39 @@ import Link from "next/link";
 import { WalletAccount } from "@wallet-standard/base";
 import useSound from "use-sound";
 import Animation from "../components/Animaiton";
-import io from "Socket.IO-client";
+import { io, Manager } from "Socket.IO-client";
 import { DashBoard } from "../components/DashBoard";
-
-const GamePage = () => {
+import Button from "../components/Button";
+import Button2 from "../components/Button2";
+import Button3 from "../components/Button3";
+export async function getServerSideProps() {
+  const initialData = await fetch("http://34.125.37.158:3306").then((x) =>
+    x.json()
+  );
+  return { props: { data: initialData } };
+}
+const GamePage = (props: any) => {
+  const [data, setData] = useState<
+    {
+      _id: string;
+      betamount: string;
+      betvalue: string[];
+      gamer: string;
+      isjackpot: boolean;
+      jackpotamount: string;
+      jackpotvalue: string[];
+      module: string;
+      poolbalance: string;
+      timestamp: number;
+      txdigest: string;
+    }[]
+  >(props.data);
+  useEffect(() => {
+    fetch("http://34.125.37.158:3306")
+      .then((x) => x.json())
+      .then((x) => setData(x));
+  }, []);
+  console.log(data, "data");
   const {
     select, // select
     configuredWallets, // default wallets
@@ -33,19 +62,7 @@ const GamePage = () => {
   const betAmount = suiValue * 10000;
   const [moneyPlay] = useSound("/game/music/money.mp3");
   const [betPlay] = useSound("/game/music/bet.mp3");
-  // const socketClient = io("http://34.125.37.158:3306");
-  // const handleSocket = () => {
-  //   socketClient.on("connect", () => {
-  //     console.log("connection server");
-  //   });
 
-  //   socketClient.on("first Respond", (req) => {
-  //     console.log(req);
-  //   });
-  // };
-  // const handleClose = () => {
-  //   socketClient.close();
-  // };
   let currentWallet: readonly WalletAccount[] | { address: string }[] = [];
   if (connected) {
     currentWallet = getAccounts();
@@ -157,7 +174,7 @@ const GamePage = () => {
       {connected ? (
         <>
           {" "}
-          <div className="absolute bg-[#000] opacity-80 top-0 left-0 w-screen  px-6 py-3  overflow-auto ">
+          <div className="fixed  opacity-80 top-0 left-0 w-screen  px-6 pb-[4rem] pt-3 overflow-auto ">
             <div>
               <nav className="" aria-label="Global">
                 <div className="flex  lg:min-w-0 lg:flex-1" aria-label="Global">
@@ -170,17 +187,12 @@ const GamePage = () => {
                   </Link>
                   <div className="flex w-full lg:flex lg:ml-5 lg:min-w-0 lg:justify-end">
                     <div
-                      onClick={() => handleSocket()}
-                      className="block py-3 px-4 text-m hover:bg-yellow-800 text-white text-bold rounded-[10px]"
+                      onClick={() => setDash(!dash)}
+                      className="block py-2.5 px-4 mx-3 text-m bg-yellow-800 text-white text-bold rounded-[15px] cursor-pointer"
                     >
                       DashBoard
                     </div>
-                    <div
-                      // onClick={() => handleClose()}
-                      className="block py-3 px-4 text-m hover:bg-yellow-800 text-white text-bold rounded-[10px]"
-                    >
-                      DashBoardCLose
-                    </div>
+
                     <div></div>
                     <div className="flex w-[500px]h-[190px]opacity-100 z-99 ">
                       <ConnectButton className="opacity-100 z-99" />
@@ -197,13 +209,16 @@ const GamePage = () => {
           >
             <Animation />
           </div>
-          <div className="flex w-full h-screen overflow-auto z-0">
+          <div className="flex w-full 2xl:h-screen xl:h-screen sm:h-full overflow-auto z-0">
             <div
-              className={`w-full h-screen text-white bg-gamewrapper  bg-no-repeat bg-cover bg-center ${
+              className={`w-full 2xl:h-screen xl:h-screen sm:h-full text-white bg-gamewrapper  bg-no-repeat bg-cover bg-center ${
                 tx ? "hidden" : "flex-col"
               }`}
             >
-              {/* <DashBoard /> */}
+              {" "}
+              <div className={` ${dash ? "flex" : "hidden"}`}>
+                <DashBoard data={data} />
+              </div>
               <div className="flex-col  w-full h-3/7 justify-center items-end ">
                 <div className="flex justify-center ">
                   <div className="flex mt-[120px] ">
@@ -402,78 +417,68 @@ const GamePage = () => {
           </div>
         </>
       ) : (
-        [...configuredWallets, ...detectedWallets].map((wallet) => (
-          <>
-            {" "}
-            <div className="absolute bg-[#000] opacity-80 top-0 left-0 w-screen  px-6 py-3 overflow-y-auto overflow-x-auto ">
-              <div>
-                <nav className="" aria-label="Global">
-                  <div
-                    className="flex  lg:min-w-0 lg:flex-1"
-                    aria-label="Global"
+        <>
+          {" "}
+          <div className="fixed  opacity-80 top-0 left-0 w-screen  px-6 pb-[4rem] pt-3 overflow-auto ">
+            <div>
+              <nav className="" aria-label="Global">
+                <div className="flex  lg:min-w-0 lg:flex-1" aria-label="Global">
+                  <Image src="/logo.png" width={50} height={50} alt="logo" />
+                  <Link
+                    href="/"
+                    className="pt-3 -m-1.5 p-1.5 text-3xl font-bold text-white text-bold"
                   >
-                    <Image src="/logo.png" width={50} height={50} alt="logo" />
-                    <Link
-                      href="/"
-                      className="pt-3 -m-1.5 p-1.5 text-3xl font-bold text-white text-bold"
+                    Suino
+                  </Link>
+                  <div className="flex w-full lg:flex lg:ml-5 lg:min-w-0 lg:justify-end">
+                    <div
+                      onClick={() => setDash(!dash)}
+                      className="flex  py-2.5 px-4 ml-[100px] text-m bg-yellow-800 text-white text-bold rounded-[15px] cursor-pointer"
                     >
-                      Suino
-                    </Link>
-                    <div className="flex w-full lg:flex lg:ml-5 lg:min-w-0 lg:justify-end">
-                      <Link
-                        href="#"
-                        className="block py-3 px-4 text-m hover:bg-yellow-800 text-white text-bold rounded-[10px]"
-                      >
-                        DashBoard
-                      </Link>
-                      <div></div>
-                      <div className="flex w-[500px]h-[190px]opacity-100 z-99 ">
-                        <ConnectButton className="opacity-100 z-99" />
-                      </div>
+                      DashBoard
+                    </div>
+                    <div></div>
+                    <div className="flex w-[500px]h-[190px]opacity-100 z-99 2xl:flex xl:flex sm:hidden">
+                      <Button2 />
                     </div>
                   </div>
-                </nav>
+                </div>
+              </nav>
+              <div
+                className={` ${
+                  dash ? "flex text-white bg-[rgb(0,0,0,0.5)] " : "hidden"
+                }`}
+              >
+                <DashBoard data={data} />
               </div>
             </div>
-            <div className="flex w-full h-screen overflow-y-auto overflow-x-auto z-0">
-              <div className="w-full h-screen text-white bg-gamewrapper  bg-no-repeat bg-cover bg-center ">
-                <div className="flex-col items-start h-screen justify-center mt-[100px] ">
-                  <span className="flex 2xl:text-[9rem] sm:text-[4rem]  font-bold tracking-tight sm:text-center text-white font-serif justify-center">
-                    SUINO FLIP
-                  </span>
-                  <div className="flex justify-center">
-                    <div className="flex-col item-center ">
-                      <div className="flex justify-center">
-                        <Image
-                          src="/game/CoinHead.png"
-                          width={280}
-                          height={280}
-                          alt="coin"
-                          className=" 2xl:block xl:block"
-                        />
-                      </div>
-                      <div className="flex justify-center bg-cover bg-center px-1 py-3  2xl:w-[470px] 2xl:h-[80px] xl:w-[470px] xl:h-[80px] leading-6  shadow-md ">
-                        <ConnectModal
-                          open={showModal}
-                          onOpenChange={(open) => setShowModal(open)}
-                        >
-                          <Image
-                            key={wallet.name}
-                            src="/game/bet.png"
-                            width={470}
-                            height={80}
-                            alt="btn"
-                            className=" px-3 hover:translate-y-1 cursor-pointer"
-                          />
-                        </ConnectModal>
-                      </div>
+          </div>
+          <div className="flex w-full h-screen overflow-y-auto overflow-x-auto z-0">
+            <div className="w-full h-screen text-white bg-gamewrapper  bg-no-repeat bg-cover bg-center ">
+              <div className="flex-col items-start h-screen justify-center mt-[100px] ">
+                <span className="flex 2xl:text-[9rem] sm:text-[4rem]  font-bold tracking-tight sm:text-center text-white font-serif justify-center">
+                  SUINO FLIP
+                </span>
+                <div className="flex justify-center">
+                  <div className="flex-col item-center ">
+                    <div className="flex justify-center">
+                      <Image
+                        src="/game/CoinHead.png"
+                        width={280}
+                        height={280}
+                        alt="coin"
+                        className=" 2xl:block xl:block"
+                      />
+                    </div>
+                    <div className="flex justify-center bg-cover bg-center px-1 py-3  2xl:w-[470px] 2xl:h-[80px] xl:w-[470px] xl:h-[80px] leading-6  shadow-md ">
+                      <Button />
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </>
-        ))
+          </div>
+        </>
       )}
     </div>
   );
