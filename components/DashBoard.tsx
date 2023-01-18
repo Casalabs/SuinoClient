@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import { Datas } from "./Dash";
-export const DashBoard = ({ data }: any) => {
+export const DashBoard = () => {
   return (
     <div className="fixed w-[400px] bg-[rgb(0,0,0,0.5)] right-0 top-0 mt-[80px] mr-[20px] rounded-sm">
       <div>

@@ -21,27 +21,27 @@ export async function getServerSideProps() {
   return { props: { data: initialData } };
 }
 const GamePage = (props: any) => {
-  const [data, setData] = useState<
-    {
-      _id: string;
-      betamount: string;
-      betvalue: string[];
-      gamer: string;
-      isjackpot: boolean;
-      jackpotamount: string;
-      jackpotvalue: string[];
-      module: string;
-      poolbalance: string;
-      timestamp: number;
-      txdigest: string;
-    }[]
-  >(props.data);
-  useEffect(() => {
-    fetch("http://34.125.37.158:3306")
-      .then((x) => x.json())
-      .then((x) => setData(x));
-  }, []);
-  console.log(data, "data");
+  // const [data, setData] = useState<
+  //   {
+  //     _id: string;
+  //     betamount: string;
+  //     betvalue: string[];
+  //     gamer: string;
+  //     isjackpot: boolean;
+  //     jackpotamount: string;
+  //     jackpotvalue: string[];
+  //     module: string;
+  //     poolbalance: string;
+  //     timestamp: number;
+  //     txdigest: string;
+  //   }[]
+  // >(props.data);
+  // useEffect(() => {
+  //   fetch("http://34.125.37.158:3306")
+  //     .then((x) => x.json())
+  //     .then((x) => setData(x));
+  // }, []);
+  // console.log(data, "data");
   const {
     select, // select
     configuredWallets, // default wallets
@@ -216,7 +216,7 @@ const GamePage = (props: any) => {
             >
               {" "}
               <div className={` ${dash ? "flex" : "hidden"}`}>
-                <DashBoard data={data} />
+                <DashBoard />
               </div>
               <div className="flex-col  w-full h-3/7 justify-center items-end ">
                 <div className="flex justify-center ">
@@ -448,7 +448,7 @@ const GamePage = (props: any) => {
                   dash ? "flex text-white bg-[rgb(0,0,0,0.5)] " : "hidden"
                 }`}
               >
-                <DashBoard data={data} />
+                <DashBoard />
               </div>
             </div>
           </div>
