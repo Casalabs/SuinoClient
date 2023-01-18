@@ -10,7 +10,6 @@ import Link from "next/link";
 import { WalletAccount } from "@wallet-standard/base";
 import useSound from "use-sound";
 import Animation from "../components/Animaiton";
-import { io, Manager } from "Socket.IO-client";
 import { DashBoard } from "../components/DashBoard";
 import Button from "../components/Button";
 import Button2 from "../components/Button2";
