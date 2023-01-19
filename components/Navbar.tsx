@@ -176,12 +176,12 @@ export const NavBar = () => {
               className="text-white text-[30px] px-3 py-1 cursor-pointer hover:text-gray-600"
             />
           </div>
-          <div onClick={() => alert("Coming soon!")}>
+          <Link href="https://twitter.com/suino_official">
             <FontAwesomeIcon
               icon={faTwitter}
               className="text-white  text-[30px] px-3 py-1 cursor-pointer hover:text-gray-600"
             />{" "}
-          </div>
+          </Link>
           <div onClick={() => alert("Coming soon!")}>
             <FontAwesomeIcon
               icon={faGithub}
