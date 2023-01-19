@@ -170,19 +170,19 @@ export const NavBar = () => {
               Launch app
             </Link>
           </div>
-          <div onClick={() => alert("Comming Soon!")}>
+          <div onClick={() => alert("Coming soon!")}>
             <FontAwesomeIcon
               icon={faDiscord}
               className="text-white text-[30px] px-3 py-1 cursor-pointer hover:text-gray-600"
             />
           </div>
-          <div onClick={() => alert("Comming Soon!")}>
+          <div onClick={() => alert("Coming soon!")}>
             <FontAwesomeIcon
               icon={faTwitter}
               className="text-white  text-[30px] px-3 py-1 cursor-pointer hover:text-gray-600"
             />{" "}
           </div>
-          <div onClick={() => alert("Comming Soon!")}>
+          <div onClick={() => alert("Coming soon!")}>
             <FontAwesomeIcon
               icon={faGithub}
               className="text-white  text-[30px] px-3  py-1 cursor-pointer hover:text-gray-600"

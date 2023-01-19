@@ -104,6 +104,7 @@ export const Faqs = () => {
               <Link
                 href="#"
                 className="flex rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 "
+                onClick={() => alert("Coming soon!")}
               >
                 <FontAwesomeIcon
                   icon={faDiscord}
@@ -113,6 +114,7 @@ export const Faqs = () => {
               <Link
                 href="#"
                 className="flex rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 "
+                onClick={() => alert("Coming soon!")}
               >
                 <FontAwesomeIcon
                   icon={faTwitter}
@@ -123,6 +125,7 @@ export const Faqs = () => {
               <Link
                 href="#"
                 className="flex rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 "
+                onClick={() => alert("Coming soon!")}
               >
                 <FontAwesomeIcon
                   icon={faGithub}
