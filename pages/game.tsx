@@ -96,64 +96,74 @@ const GamePage = (props: any) => {
     let betV = betValue.map((number: number) => String(number));
     console.log(betV);
     try {
-      console.log(currentWallet[0].address, "wallet");
-      const resData = await signAndExecuteTransaction({
-        transaction: {
-          kind: "moveCall",
-          data: {
-            packageObjectId: "0x4f8dc8c373defb2554f52f07655d9f3369ae9f7e",
-            module: "flip",
-            function: "bet",
-            typeArguments: [],
-            arguments: [
-              //FlIP
-              //process.env.FLIP,
-              "0xea16d1959559ed0755c8221b46e708b727d39a90",
-              //CORE
-              // process.env.CORE,
-              "0x45109ae0c42c417403668eab9ee28237cd8810ff",
-              //TREASURY
-              // process.env.TREASURY,
-              "0xf84d8819dd9f7c3ac7cb91de134f5dddfdb7c4e3",
-              //LOTTERY
-              // process.env.LOTTERY,
-              "0x5d8ab8bd872288f0cefe0f9a7f5a3243ef0dc0b5",
-              String(maxSuiObj),
-              String(betAmount),
-              betV,
-            ],
-            gasBudget: 10000,
+      if (betAmount <= 798771765 / 10) {
+        const resData = await signAndExecuteTransaction({
+          transaction: {
+            kind: "moveCall",
+            data: {
+              packageObjectId: "0x4f8dc8c373defb2554f52f07655d9f3369ae9f7e",
+              module: "flip",
+              function: "bet",
+              typeArguments: [],
+              arguments: [
+                //FlIP
+                //process.env.FLIP,
+                "0xea16d1959559ed0755c8221b46e708b727d39a90",
+                //CORE
+                // process.env.CORE,
+                "0x45109ae0c42c417403668eab9ee28237cd8810ff",
+                //TREASURY
+                // process.env.TREASURY,
+                "0xf84d8819dd9f7c3ac7cb91de134f5dddfdb7c4e3",
+                //LOTTERY
+                // process.env.LOTTERY,
+                "0x5d8ab8bd872288f0cefe0f9a7f5a3243ef0dc0b5",
+                String(maxSuiObj),
+                String(betAmount),
+                betV,
+              ],
+              gasBudget: 10000,
+            },
           },
-        },
-      });
-      console.log("betting successfully!", resData);
-      const event = resData?.effects?.events;
+        });
+        console.log(currentWallet[0].address, "wallet");
+        console.log("betting successfully!", resData);
 
-      if (event != undefined) {
-        console.log(
-          event[event?.length - 1]?.moveEvent?.fields?.is_jackpot,
-          "events"
-        );
-        console.log(
-          event[event?.length - 1]?.moveEvent?.fields?.jackpot_amount,
-          "how many money"
-        );
-        if (event[event?.length - 1]?.moveEvent?.fields?.is_jackpot) {
-          setTimeout(() => alert("you win the betting!"), 1100);
-          if (event[event?.length - 1]?.moveEvent?.fields?.jackpot_amount) {
-            setTimeout(
-              () =>
-                alert(
-                  `you got ${
-                    event[event?.length - 1]?.moveEvent?.fields?.jackpot_amount
-                  }`
-                ),
-              1100
-            );
+        const event = resData?.effects?.events;
+
+        if (event != undefined) {
+          console.log(
+            event[event?.length - 1]?.moveEvent?.fields?.is_jackpot,
+            "events"
+          );
+          console.log(
+            event[event?.length - 1]?.moveEvent?.fields?.jackpot_amount,
+            "how many money"
+          );
+          if (event[event?.length - 1]?.moveEvent?.fields?.is_jackpot) {
+            setTimeout(() => alert("you win the betting!"), 1100);
+            if (event[event?.length - 1]?.moveEvent?.fields?.jackpot_amount) {
+              setTimeout(
+                () =>
+                  alert(
+                    `you got ${
+                      event[event?.length - 1]?.moveEvent?.fields
+                        ?.jackpot_amount
+                    }`
+                  ),
+                1100
+              );
+            }
+          } else if (
+            !event[event?.length - 1]?.moveEvent?.fields?.jackpot_amount
+          ) {
+            setTimeout(() => alert("you lose the betting!"), 1100);
+          } else {
+            alert("tx fail pls check you coin obj or betting Amount");
           }
-        } else {
-          setTimeout(() => alert("you lose the betting!"), 1100);
         }
+      } else {
+        alert("pls down bet Amount!");
       }
     } catch (e) {
       console.error("betting failed", e);

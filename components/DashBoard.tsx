@@ -2,11 +2,12 @@ import Image from "next/image";
 
 import { Datas } from "./Dash";
 export const DashBoard = () => {
+  let data = Datas.slice(Datas.length - 6, Datas.length - 1);
   return (
     <div className="fixed w-[400px] bg-[rgb(0,0,0,0.5)] right-0 top-0 mt-[80px] mr-[20px] rounded-sm">
       <div>
         <div>
-          {Datas.map((value, index) => {
+          {data.map((value, index) => {
             return (
               <div
                 key={index}

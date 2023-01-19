@@ -10,7 +10,7 @@ export const Feature = () => {
               with people from George Orwell's Animal Farm. Influenced by
               Italy's "mafia" culture, they are pigs who live by their
               lifestyles and values and have named their organization "SUINO,"
-              which ßmeans pig in Italian.
+              which means pig in Italian.
             </div>
             <div className="flex  2xl:text-[30px] xl:text-[20px] text-[#fff] font-serif opacity-100 pb-6 justify-center z-20 hover:text-white  py-3">
               They are rough and violent, but they are determined and thorough
