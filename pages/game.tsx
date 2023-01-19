@@ -154,9 +154,7 @@ const GamePage = (props: any) => {
                 1100
               );
             }
-          } else if (
-            !event[event?.length - 1]?.moveEvent?.fields?.jackpot_amount
-          ) {
+          } else if (!event[event?.length - 1]?.moveEvent?.fields?.is_jackpot) {
             setTimeout(() => alert("you lose the betting!"), 1100);
           } else {
             alert("tx fail pls check you coin obj or betting Amount");
