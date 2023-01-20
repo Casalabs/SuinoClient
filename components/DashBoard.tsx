@@ -2,6 +2,24 @@ import Image from "next/image";
 
 import { Datas } from "./Dash";
 export const DashBoard = () => {
+  // let socket = new WebSocket("ws://34.125.37.158:3306/ws");
+  // console.log("Tentativo di connessione");
+
+  // socket.onopen = () => {
+  //   console.log("Connessione riuscita");
+  //   socket.send("Ciao dal Client!");
+  // };
+
+  // socket.onclose = (event) => {
+  //   console.log("Connessione chiusa: ", event);
+  // };
+
+  // socket.onerror = (error) => {
+  //   console.log("Errore socket: ", error);
+  // };
+  // socket.onmessage = (data) => {
+  //   console.log(data.data, "data");
+  // };
   let data = Datas.slice(Datas.length - 6, Datas.length - 1);
   return (
     <div className="fixed w-[400px] bg-[rgb(0,0,0,0.5)] right-0 top-0 mt-[80px] mr-[20px] rounded-sm">

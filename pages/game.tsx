@@ -14,6 +14,7 @@ import { DashBoard } from "../components/DashBoard";
 import Button from "../components/Button";
 import Button2 from "../components/Button2";
 import Button3 from "../components/Button3";
+import { FullAmount } from "../components/FullAmount";
 export async function getServerSideProps() {
   const initialData = await fetch("http://34.125.37.158:3306").then((x) =>
     x.json()
@@ -42,6 +43,7 @@ const GamePage = (props: any) => {
   //     .then((x) => setData(x));
   // }, []);
   // console.log(data, "data");
+
   const {
     select, // select
     configuredWallets, // default wallets
@@ -192,7 +194,9 @@ const GamePage = (props: any) => {
                   >
                     Suino
                   </Link>
+
                   <div className="flex w-full lg:flex lg:ml-5 lg:min-w-0 lg:justify-end">
+                    <FullAmount />
                     <div
                       onClick={() => setDash(!dash)}
                       className="block py-2.5 px-4 mx-3 text-m bg-yellow-800 text-white text-bold rounded-[15px] cursor-pointer"
@@ -438,9 +442,10 @@ const GamePage = (props: any) => {
                     Suino
                   </Link>
                   <div className="flex w-full lg:flex lg:ml-5 lg:min-w-0 lg:justify-end">
+                    <FullAmount />
                     <div
                       onClick={() => setDash(!dash)}
-                      className="flex  py-2.5 px-4 ml-[100px] text-m bg-yellow-800 text-white text-bold rounded-[15px] cursor-pointer"
+                      className="flex  py-2.5 px-4 mr-0 ml-3 text-m bg-yellow-800 text-white text-bold rounded-lg cursor-pointer"
                     >
                       DashBoard
                     </div>
@@ -451,6 +456,7 @@ const GamePage = (props: any) => {
                   </div>
                 </div>
               </nav>
+
               <div
                 className={` ${
                   dash ? "flex text-white bg-[rgb(0,0,0,0.5)] " : "hidden"
