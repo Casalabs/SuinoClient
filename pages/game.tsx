@@ -112,23 +112,23 @@ const GamePage = (props: any) => {
           transaction: {
             kind: "moveCall",
             data: {
-              packageObjectId: "0x4f8dc8c373defb2554f52f07655d9f3369ae9f7e",
+              packageObjectId: "0x1f5baf7de21c245452effede657b903c0bc5ad33",
               module: "flip",
               function: "bet",
               typeArguments: [],
               arguments: [
                 //FlIP
                 //process.env.FLIP,
-                "0xea16d1959559ed0755c8221b46e708b727d39a90",
+                "0x8706420217d16da6e1599eb77a22c05586311529",
                 //CORE
                 // process.env.CORE,
-                "0x45109ae0c42c417403668eab9ee28237cd8810ff",
+                "0xa0fa130ad17e46620708cfb3066a344040484c02",
                 //TREASURY
                 // process.env.TREASURY,
-                "0xf84d8819dd9f7c3ac7cb91de134f5dddfdb7c4e3",
+                "0xae623c92cb25b2c68993fc06cfa94fa1d1b0ae69",
                 //LOTTERY
                 // process.env.LOTTERY,
-                "0x5d8ab8bd872288f0cefe0f9a7f5a3243ef0dc0b5",
+                "0x9b71bfca430ec74e6034e066a59772e19622f1de",
                 String(maxSuiObj),
                 String(betAmount),
                 betV,
