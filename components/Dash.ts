@@ -104,3 +104,17 @@ export const Datas = [
     txdigest: "BEUD5zQ3UdSG3gDLw3pXcqEukGB2ezUgE3QkRkZeCNKH",
   },
 ];
+export interface IDash {
+  _id: string;
+  betamount: string;
+  betvalue: [string];
+  gamer: string;
+  isjackpot: boolean;
+  jackpotamount: string;
+  jackpotvalue: [string];
+  module: string;
+  poolbalance: string;
+  timestamp: number;
+  txdigest: string;
+}
+export let DashBoardData: IDash[] = [];

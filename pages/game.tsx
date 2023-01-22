@@ -15,6 +15,7 @@ import Button from "../components/Button";
 import Button2 from "../components/Button2";
 import Button3 from "../components/Button3";
 import { FullAmount } from "../components/FullAmount";
+import Router from "next/router";
 export async function getServerSideProps() {
   const initialData = await fetch("http://34.125.37.158:3306").then((x) =>
     x.json()
@@ -52,10 +53,12 @@ const GamePage = (props: any) => {
     connected,
     getAccounts,
     signAndExecuteTransaction,
+    connecting,
   } = useWallet();
   const [dash, setDash] = useState(false);
   const [dashData, setDashData] = useState();
   const [showModal, setShowModal] = useState(false);
+  const [errorState, setErrorState] = useState(null);
   const [CoinBetValue, setCoinValue] = useState([0]);
   const [tx, setTx] = useState(false);
   const provider = new JsonRpcProvider(Network.DEVNET);
@@ -65,10 +68,16 @@ const GamePage = (props: any) => {
   const [betPlay] = useSound("/game/music/bet.mp3");
 
   let currentWallet: readonly WalletAccount[] | { address: string }[] = [];
-  if (connected) {
+  if (connecting) {
+    <div>null</div>;
+  }
+  function handleGetAccounts() {
+    if (!connected) return;
     currentWallet = getAccounts();
   }
-
+  useEffect(() => {
+    handleGetAccounts();
+  }, []);
   const handleSignAndExecuteTx = async (betAmount: number, betValue: any) => {
     if (!connected) return;
     const balance = await provider?.getCoinBalancesOwnedByAddress(
@@ -82,7 +91,7 @@ const GamePage = (props: any) => {
         obj?.details?.data?.type == "0x2::coin::Coin<0x2::sui::SUI>"
       );
     });
-    const max = suiObjects?.reduce((acc: any, cur: any) => {
+    const max = suiObjects.reduce((acc: any, cur: any) => {
       const obj1 = Object?.assign(acc);
       const obj2 = Object?.assign(cur);
       if (
@@ -98,7 +107,7 @@ const GamePage = (props: any) => {
     let betV = betValue.map((number: number) => String(number));
     console.log(betV);
     try {
-      if (betAmount <= 798771765 / 10) {
+      if (betAmount <= 798771765 / 10 && maxSuiObj != undefined) {
         const resData = await signAndExecuteTransaction({
           transaction: {
             kind: "moveCall",
@@ -167,6 +176,7 @@ const GamePage = (props: any) => {
       }
     } catch (e) {
       console.error("betting failed", e);
+      setErrorState(e);
     }
   };
   useEffect(() => {
@@ -180,7 +190,9 @@ const GamePage = (props: any) => {
         <meta name="description" content="Suino" />
         <Link rel="icon" href="/favicon.ico" />
       </Head>
-      {connected ? (
+      {errorState ? (
+        <div>{errorState}</div>
+      ) : connected ? (
         <>
           {" "}
           <div className="fixed  opacity-80 top-0 left-0 w-screen  px-6 pb-[4rem] pt-3 overflow-auto ">

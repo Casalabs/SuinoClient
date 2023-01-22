@@ -8,7 +8,7 @@ import {
   SuiTestnetChain,
 } from "@suiet/wallet-kit";
 import "@suiet/wallet-kit/style.css";
-
+import { RecoilRoot } from "recoil";
 export default function App({ Component, pageProps }: AppProps) {
   const SupportedChains: Chain[] = [
     // ...DefaultChains,
@@ -20,8 +20,10 @@ export default function App({ Component, pageProps }: AppProps) {
   ];
 
   return (
-    <WalletProvider chains={SupportedChains}>
-      <Component {...pageProps} />
-    </WalletProvider>
+    <RecoilRoot>
+      <WalletProvider chains={SupportedChains}>
+        <Component {...pageProps} />
+      </WalletProvider>
+    </RecoilRoot>
   );
 }
