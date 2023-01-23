@@ -53,6 +53,7 @@ const GamePage = (props: any) => {
     connected,
     getAccounts,
     signAndExecuteTransaction,
+    status,
     connecting,
   } = useWallet();
   const [dash, setDash] = useState(false);
@@ -68,16 +69,9 @@ const GamePage = (props: any) => {
   const [betPlay] = useSound("/game/music/bet.mp3");
 
   let currentWallet: readonly WalletAccount[] | { address: string }[] = [];
-  if (connecting) {
-    <div>null</div>;
-  }
-  function handleGetAccounts() {
-    if (!connected) return;
+  if (connected) {
     currentWallet = getAccounts();
   }
-  useEffect(() => {
-    handleGetAccounts();
-  }, []);
   const handleSignAndExecuteTx = async (betAmount: number, betValue: any) => {
     if (!connected) return;
     const balance = await provider?.getCoinBalancesOwnedByAddress(
@@ -137,7 +131,7 @@ const GamePage = (props: any) => {
             },
           },
         });
-        console.log(currentWallet[0].address, "wallet");
+        console.log(currentWallet, "wallet");
         console.log("betting successfully!", resData);
 
         const event = resData?.effects?.events;
@@ -185,11 +179,6 @@ const GamePage = (props: any) => {
 
   return (
     <div className="isolate bg-[#050C08]">
-      <Head>
-        <title>SuinoGame</title>
-        <meta name="description" content="Suino" />
-        <Link rel="icon" href="/favicon.ico" />
-      </Head>
       {errorState ? (
         <div>{errorState}</div>
       ) : connected ? (

@@ -20,10 +20,6 @@ const Home = () => {
   };
   return (
     <div className="bg-black ">
-      <Head>
-        <title>Suino</title>
-        <meta name="description" content="Suino" />
-      </Head>
       {isClicked ? (
         <div>
           <div className="flex items-center justify-center w-full h-screen">
