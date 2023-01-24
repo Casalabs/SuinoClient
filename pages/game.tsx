@@ -266,7 +266,7 @@ const GamePage = (props: {
             >
               {" "}
               <div className={` ${dash ? "flex" : "hidden"}`}>
-                <DashBoard />
+                <DashBoard datas={data} />
               </div>
               <div className="flex-col  w-full h-3/7 justify-center items-end ">
                 <div className="flex justify-center ">

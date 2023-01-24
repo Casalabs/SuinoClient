@@ -5,13 +5,13 @@ import { Key, SetStateAction, useEffect, useRef, useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { PullValueState, WebsocketState } from "../atoms/FlipAtom";
 
-export const DashBoard = () => {
+export const DashBoard = (datas: InDash[] | any) => {
   const ws = useRef(null);
   const [pull, setPull] = useRecoilState(PullValueState);
   const dash = useRecoilValue(WebsocketState);
   const [newData, setNewData] = useState([]);
   const [isPaused, setPause] = useState(false);
-  const meta = Datas;
+  const meta = datas;
   const [socketConnected, setSocketConnected] = useState(false);
   const [sendMsg, setSendMsg] = useState(false);
   const [items, setItems] = useState([]);
@@ -28,7 +28,7 @@ export const DashBoard = () => {
     <div className="fixed w-[400px] bg-[rgb(0,0,0,0.5)] right-0 top-0 mt-[80px] mr-[20px] rounded-sm">
       <div>
         <div>
-          {dash != undefined
+          {datas != undefined
             ? dash.map(
                 (
                   value: { gamer: string; isjackpot: any; betamount: any },

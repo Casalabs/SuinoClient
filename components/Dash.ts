@@ -105,17 +105,33 @@ export const Datas = [
   },
 ];
 export interface InDash {
-  _id: string;
-  betamount: string;
-  betvalue: [string];
-  gamer: string;
-  isjackpot: false;
-  jackpotamount: string;
-  jackpotvalue: [string];
-  module: string;
-  poolbalance: string;
-  timestamp: number;
-  txdigest: string;
+  data:
+    | {
+        _id: string;
+        betamount: string;
+        betvalue: string[];
+        gamer: string;
+        isjackpot: boolean;
+        jackpotamount: string;
+        jackpotvalue: string[];
+        module: string;
+        poolbalance: string;
+        timestamp: number;
+        txdigest: string;
+      }[]
+    | (() => {
+        _id: string;
+        betamount: string;
+        betvalue: string[];
+        gamer: string;
+        isjackpot: boolean;
+        jackpotamount: string;
+        jackpotvalue: string[];
+        module: string;
+        poolbalance: string;
+        timestamp: number;
+        txdigest: string;
+      }[]);
 }
 export interface IDash {
   method: string;
