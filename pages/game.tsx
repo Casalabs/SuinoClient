@@ -78,7 +78,9 @@ const GamePage = (props: {
         setData(x);
       });
   }, []);
-
+  useEffect(() => {
+    setDashs(data);
+  }, []);
   console.log(dashs, "data");
   console.log(data, "datas");
 
