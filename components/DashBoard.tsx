@@ -1,30 +1,69 @@
 import Image from "next/image";
-
-import { Datas, IDash, DashBoardData } from "./Dash";
-import { useState } from "react";
+const WebSocket = require("ws");
+import { Datas, IDash, IDashProps } from "./Dash";
+import { SetStateAction, useEffect, useRef, useState } from "react";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { PullValueState, WebsocketState } from "../atoms/FlipAtom";
 export const DashBoard = () => {
-  // const [dashData,setDashData] = useState(DashBoardData)
-  // let socket = new WebSocket("ws://34.125.37.158:3306/ws");
-  // console.log("Tentativo di connessione");
+  const ws = useRef(null);
+  const [pull, setPull] = useRecoilState(PullValueState);
+  const [dash, setDash] = useRecoilState(WebsocketState);
+  const [isPaused, setPause] = useState(false);
+  const meta = Datas;
+  if (typeof window === "undefined") {
+    ws.current = new WebSocket("ws://34.125.37.158:3306/ws");
+    console.log("Tentativo di connessione");
 
-  // socket.onopen = () => {
-  //   console.log("Connessione riuscita");
-  //   socket.send("Ciao dal Client!");
-  // };
+    ws.current.onopen = () => {
+      console.log("Connessione riuscita");
+      ws.current.send("Ciao dal Client!");
+    };
+    if (!ws.current) return;
 
-  // socket.onclose = (event) => {
-  //   console.log("Connessione chiusa: ", event);
-  // };
+    ws.current.onmessage = (e: { data: string }) => {
+      const message = JSON.parse(e.data);
+      console.log("e", message);
+    };
+    ws.current.onclose = (event: any) => {
+      console.log("Connessione chiusa: ", event);
+    };
 
-  // socket.onerror = (error) => {
-  //   console.log("Errore socket: ", error);
-  // };
-  // socket.onmessage = (data) => {
-  //   console.log(data.data, "data");
-  //   setDashData(data.data)
-  // };
-  let data = Datas.slice(Datas.length - 6, Datas.length - 1);
-  // let datas =dashData.slice(dashData.length - 6,dashData.length - 1);
+    ws.current.onerror = (error: any) => {
+      console.log("Errore ws.current: ", error);
+    };
+    ws.current.onmessage = (data: IDashProps) => {
+      console.log(data.data, "data");
+      let da = dash.slice();
+
+      const dashData: any = da.map((value) =>
+        da.push({
+          ...da,
+          method: "new Bet",
+          payload: {
+            Module: "flip",
+            TimeStamp: value.payload.TimeStamp,
+            TxDigest: "",
+            Gamer: value.payload.Gamer,
+            BetAmount: value.payload.BetAmount,
+            BetValue: value.payload.BetValue,
+            IsJackpot: value.payload.IsJackpot,
+            JackpotAmount: value.payload.JackpotAmount,
+            JackpotValue: value.payload.JackpotValue,
+            PoolBalance: value.payload.PoolBalance,
+          },
+        })
+      );
+      let datas: string = da[da.length - 1].payload.PoolBalance;
+      setDash(dashData);
+      setPull(datas);
+      console.log(dash, "dash");
+    };
+  }
+
+  let data = meta.slice(Datas.length - 6, Datas.length - 1);
+  // let data = dash.slice(dash.length - 6, dash.length - 1);
+  console.log(dash, "dash");
+  console.log(pull, "pull");
   return (
     <div className="fixed w-[400px] bg-[rgb(0,0,0,0.5)] right-0 top-0 mt-[80px] mr-[20px] rounded-sm">
       <div>

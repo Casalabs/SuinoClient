@@ -4,7 +4,9 @@ import Link from "next/link";
 export default function Document() {
   return (
     <Html lang="en">
-      <Head></Head>
+      <Head>
+        <meta name="description" content="Suino" />
+      </Head>
       <body>
         <Main />
         <NextScript />

@@ -105,16 +105,21 @@ export const Datas = [
   },
 ];
 export interface IDash {
-  _id: string;
-  betamount: string;
-  betvalue: [string];
-  gamer: string;
-  isjackpot: boolean;
-  jackpotamount: string;
-  jackpotvalue: [string];
-  module: string;
-  poolbalance: string;
-  timestamp: number;
-  txdigest: string;
+  method: string;
+  payload: {
+    Module: string;
+    TimeStamp: number;
+    TxDigest: string;
+    Gamer: string;
+    BetAmount: string;
+    BetValue: [number];
+    IsJackpot: boolean;
+    JackpotAmount: string;
+    JackpotValue: [number];
+    PoolBalance: string;
+  };
 }
-export let DashBoardData: IDash[] = [];
+[];
+export interface IDashProps {
+  data: Array<IDash>;
+}

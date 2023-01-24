@@ -112,7 +112,7 @@ export const Faqs = () => {
                 />
               </Link>
               <Link
-                href="#"
+                href="https://twitter.com/suino_official"
                 className="flex rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 "
                 onClick={() => alert("Coming soon!")}
               >
