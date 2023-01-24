@@ -16,34 +16,67 @@ import Button2 from "../components/Button2";
 import Button3 from "../components/Button3";
 import { FullAmount } from "../components/FullAmount";
 import Router from "next/router";
+import { useRecoilState } from "recoil";
+import { PullValueState, WebsocketState } from "../atoms/FlipAtom";
 export async function getServerSideProps() {
   const initialData = await fetch("http://34.125.37.158:3306").then((x) =>
     x.json()
   );
   return { props: { data: initialData } };
 }
-const GamePage = (props: any) => {
-  // const [data, setData] = useState<
-  //   {
-  //     _id: string;
-  //     betamount: string;
-  //     betvalue: string[];
-  //     gamer: string;
-  //     isjackpot: boolean;
-  //     jackpotamount: string;
-  //     jackpotvalue: string[];
-  //     module: string;
-  //     poolbalance: string;
-  //     timestamp: number;
-  //     txdigest: string;
-  //   }[]
-  // >(props.data);
-  // useEffect(() => {
-  //   fetch("http://34.125.37.158:3306")
-  //     .then((x) => x.json())
-  //     .then((x) => setData(x));
-  // }, []);
-  // console.log(data, "data");
+const GamePage = (props: {
+  data:
+    | {
+        _id: string;
+        betamount: string;
+        betvalue: string[];
+        gamer: string;
+        isjackpot: boolean;
+        jackpotamount: string;
+        jackpotvalue: string[];
+        module: string;
+        poolbalance: string;
+        timestamp: number;
+        txdigest: string;
+      }[]
+    | (() => {
+        _id: string;
+        betamount: string;
+        betvalue: string[];
+        gamer: string;
+        isjackpot: boolean;
+        jackpotamount: string;
+        jackpotvalue: string[];
+        module: string;
+        poolbalance: string;
+        timestamp: number;
+        txdigest: string;
+      }[]);
+}) => {
+  const [dashs, setDashs] = useRecoilState(WebsocketState);
+  const [pull, setPull] = useRecoilState(PullValueState);
+  const [data, setData] = useState<
+    {
+      _id: string;
+      betamount: string;
+      betvalue: string[];
+      gamer: string;
+      isjackpot: boolean;
+      jackpotamount: string;
+      jackpotvalue: string[];
+      module: string;
+      poolbalance: string;
+      timestamp: number;
+      txdigest: string;
+    }[]
+  >(props.data);
+  useEffect(() => {
+    fetch("http://34.125.37.158:3306")
+      .then((x) => x.json())
+      .then((x) => setDashs(x));
+  }, []);
+
+  console.log(dashs, "data");
 
   const {
     select, // select
@@ -57,6 +90,7 @@ const GamePage = (props: any) => {
     connecting,
   } = useWallet();
   const [dash, setDash] = useState(false);
+
   const [dashData, setDashData] = useState();
   const [showModal, setShowModal] = useState(false);
   const [errorState, setErrorState] = useState(null);

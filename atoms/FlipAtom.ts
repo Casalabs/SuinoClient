@@ -13,6 +13,19 @@ interface ISuiValue {
 interface IPull {
   pullAmount: number;
 }
+interface IData {
+  _id: string;
+  betamount: string;
+  betvalue: string[];
+  gamer: string;
+  isjackpot: boolean;
+  jackpotamount: string;
+  jackpotvalue: string[];
+  module: string;
+  poolbalance: string;
+  timestamp: number;
+  txdigest: string;
+}
 export const CoinBetValueState = atom<[number]>({
   key: "CoinBetValue",
   default: [0],
@@ -29,7 +42,7 @@ export const PullValueState = atom<any>({
   key: "PullValue",
   default: "",
 });
-export const WebsocketState = atom<any>({
+export const WebsocketState = atom<IData[]>({
   key: "WebsocketValue",
   default: [],
 });
