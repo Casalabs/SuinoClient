@@ -74,7 +74,7 @@ const GamePage = (props: {
     fetch("http://34.125.37.158:3306")
       .then((x) => x.json())
       .then((x) => setDashs(x));
-  }, []);
+  }, [dashs]);
 
   console.log(dashs, "data");
 
