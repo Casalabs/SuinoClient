@@ -73,10 +73,14 @@ const GamePage = (props: {
   useEffect(() => {
     fetch("http://34.125.37.158:3306")
       .then((x) => x.json())
-      .then((x) => setDashs(x));
+      .then((x) => {
+        setDashs(x);
+        setData(x);
+      });
   }, []);
 
   console.log(dashs, "data");
+  console.log(data, "datas");
 
   const {
     select, // select
@@ -91,7 +95,6 @@ const GamePage = (props: {
   } = useWallet();
   const [dash, setDash] = useState(false);
 
-  const [dashData, setDashData] = useState();
   const [showModal, setShowModal] = useState(false);
   const [errorState, setErrorState] = useState(null);
   const [CoinBetValue, setCoinValue] = useState([0]);
