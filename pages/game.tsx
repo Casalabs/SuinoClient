@@ -234,7 +234,7 @@ const GamePage = (props: {
                   </Link>
 
                   <div className="flex w-full lg:flex lg:ml-5 lg:min-w-0 lg:justify-end">
-                    <FullAmount />
+                    <FullAmount props={data} />
                     <div
                       onClick={() => setDash(!dash)}
                       className="block py-2.5 px-4 mx-3 text-m bg-yellow-800 text-white text-bold rounded-[15px] cursor-pointer"
@@ -266,7 +266,7 @@ const GamePage = (props: {
             >
               {" "}
               <div className={` ${dash ? "flex" : "hidden"}`}>
-                <DashBoard datas={data} />
+                <DashBoard data={data} />
               </div>
               <div className="flex-col  w-full h-3/7 justify-center items-end ">
                 <div className="flex justify-center ">
@@ -480,7 +480,7 @@ const GamePage = (props: {
                     Suino
                   </Link>
                   <div className="flex w-full lg:flex lg:ml-5 lg:min-w-0 lg:justify-end">
-                    <FullAmount />
+                    <FullAmount props={data} />
                     <div
                       onClick={() => setDash(!dash)}
                       className="flex  py-2.5 px-4 mr-0 ml-3 text-m bg-yellow-800 text-white text-bold rounded-lg cursor-pointer"
