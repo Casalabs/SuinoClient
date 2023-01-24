@@ -104,6 +104,19 @@ export const Datas = [
     txdigest: "BEUD5zQ3UdSG3gDLw3pXcqEukGB2ezUgE3QkRkZeCNKH",
   },
 ];
+export interface InDash {
+  _id: string;
+  betamount: string;
+  betvalue: [string];
+  gamer: string;
+  isjackpot: false;
+  jackpotamount: string;
+  jackpotvalue: [string];
+  module: string;
+  poolbalance: string;
+  timestamp: number;
+  txdigest: string;
+}
 export interface IDash {
   method: string;
   payload: {
@@ -121,5 +134,5 @@ export interface IDash {
 }
 [];
 export interface IDashProps {
-  data: Array<IDash>;
+  data: Array<InDash>;
 }

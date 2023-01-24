@@ -1,5 +1,5 @@
 import { atom } from "recoil";
-import { IDash } from "../components/Dash";
+import { IDash, IDashProps, InDash } from "../components/Dash";
 
 interface ICoinBetValue {
   CoinBetValue: [number];
@@ -29,23 +29,7 @@ export const PullValueState = atom<any>({
   key: "PullValue",
   default: "",
 });
-export const WebsocketState = atom<IDash[]>({
+export const WebsocketState = atom<any>({
   key: "WebsocketValue",
-  default: [
-    {
-      method: "",
-      payload: {
-        Module: "",
-        TimeStamp: 0,
-        TxDigest: "",
-        Gamer: "",
-        BetAmount: "",
-        BetValue: [0],
-        IsJackpot: false,
-        JackpotAmount: "",
-        JackpotValue: [0],
-        PoolBalance: "",
-      },
-    },
-  ],
+  default: [],
 });
