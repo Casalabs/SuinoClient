@@ -18,12 +18,12 @@ import { FullAmount } from "../components/FullAmount";
 import Router from "next/router";
 import { useRecoilState } from "recoil";
 import { PullValueState, WebsocketState } from "../atoms/FlipAtom";
-export async function getServerSideProps() {
-  const initialData = await fetch("http://34.125.37.158:3306").then((x) =>
-    x.json()
-  );
-  return { props: { data: initialData } };
-}
+// export async function getServerSideProps() {
+//   const initialData = await fetch("http://34.125.37.158:3306").then((x) =>
+//     x.json()
+//   );
+//   return { props: { data: initialData } };
+// }
 const GamePage = (props: {
   data:
     | {
@@ -70,17 +70,17 @@ const GamePage = (props: {
       txdigest: string;
     }[]
   >(props.data);
-  useEffect(() => {
-    fetch("http://34.125.37.158:3306")
-      .then((x) => x.json())
-      .then((x) => {
-        setDashs(x);
-        setData(x);
-      });
-  }, []);
-  useEffect(() => {
-    setDashs(data);
-  }, []);
+  // useEffect(() => {
+  //   fetch("http://34.125.37.158:3306")
+  //     .then((x) => x.json())
+  //     .then((x) => {
+  //       setDashs(x);
+  //       setData(x);
+  //     });
+  // }, []);
+  // useEffect(() => {
+  //   setDashs(data);
+  // }, []);
   console.log(dashs, "data");
   console.log(data, "datas");
 

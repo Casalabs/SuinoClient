@@ -44,8 +44,8 @@ export const DashBoard = (
     <div className="fixed w-[400px] bg-[rgb(0,0,0,0.5)] right-0 top-0 mt-[80px] mr-[20px] rounded-sm">
       <div>
         <div>
-          {dash != undefined
-            ? dash.map(
+          {Datas != undefined
+            ? Datas.map(
                 (
                   value: { gamer: string; isjackpot: any; betamount: any },
                   index: Key
