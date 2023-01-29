@@ -217,7 +217,7 @@ const GamePage = (props: {
   }, [tx]);
 
   return (
-    <div className="isolate bg-[#050C08]">
+    <div className="w-full h-screen bg-[#050C08]">
       {errorState ? (
         <div>{errorState}</div>
       ) : connected ? (
@@ -254,15 +254,15 @@ const GamePage = (props: {
             </div>
           </div>
           <div
-            className={`w-full h-screen text-white bg-gamewrapper  bg-no-repeat bg-cover bg-center justify-center item-center overflow-y-auto overflow-x-auto  ${
+            className={`w-full h-full text-white bg-gamewrapper  bg-no-repeat bg-cover bg-center justify-center item-center overflow-y-auto overflow-x-auto  ${
               tx ? "flex" : "hidden"
             }`}
           >
             <Animation />
           </div>
-          <div className="flex w-full 2xl:h-screen xl:h-screen sm:h-full overflow-auto z-0">
+          <div className="flex w-full 2xl:h-full xl:h-full sm:h-full overflow-auto z-0">
             <div
-              className={`w-full 2xl:h-screen xl:h-screen sm:h-full text-white bg-gamewrapper  bg-no-repeat bg-cover bg-center ${
+              className={`w-full 2xl:h-full xl:h-full sm:h-full text-white bg-gamewrapper  bg-no-repeat bg-cover bg-center ${
                 tx ? "hidden" : "flex-col"
               }`}
             >

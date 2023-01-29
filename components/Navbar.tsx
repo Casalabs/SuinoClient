@@ -161,11 +161,11 @@ export const NavBar = () => {
         id="navbar-sticky"
       >
         {" "}
-        <div className="flex md:order-2">
-          <div className="lg:flex lg:ml-5 lg:min-w-0 lg:justify-end">
+        <div className="flex items-center md:order-2">
+          <div className=" item-center">
             <Link
               href="game"
-              className="flex justify-center items-center rounded-lg  w-[120px] px-4 py-1  text-m font-semibold leading-6 bg-yellow-600 text-white shadow-sm ring-1 ring-gray-900/10 hover:ring-gray-900/20 hover:bg-yellow-800"
+              className="flex justify-center items-center rounded-lg  w-[130px] px-4 py-2  text-m font-semibold leading-6 bg-yellow-600 text-white shadow-sm ring-1 ring-gray-900/10 hover:ring-gray-900/20 hover:bg-yellow-800"
             >
               Launch app
             </Link>
