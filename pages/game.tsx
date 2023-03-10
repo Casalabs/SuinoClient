@@ -138,14 +138,14 @@ const GamePage = (props: {
     console.log(max, "suiObjects");
     const maxSuiObj = Object.assign(max)?.details?.reference?.objectId;
     let betV = betValue.map((number: number) => String(number));
-    console.log(betV, "betKind");
+    console.log(betV);
     try {
       if (betAmount <= 798771765 / 10 && maxSuiObj != undefined) {
         const resData = await signAndExecuteTransaction({
           transaction: {
             kind: "moveCall",
             data: {
-              packageObjectId: "0xb22d18b50d40f31dd07d5dcf1bc9b05af5c5253a",
+              packageObjectId: process.env.NEXT_PUBLIC_PACKAGE_ID,
               module: "flip",
               function: "bet",
               typeArguments: [],
@@ -171,10 +171,7 @@ const GamePage = (props: {
           },
         });
         console.log(currentWallet, "wallet");
-        console.log(
-          "betting successfully!",
-          resData.effects.events[resData.effects.events.length - 1]
-        );
+        console.log("betting successfully!", resData);
 
         const event = resData?.effects?.events;
 
@@ -201,9 +198,7 @@ const GamePage = (props: {
                 1100
               );
             }
-          } else if (
-            event[event?.length - 1]?.moveEvent?.fields?.is_jackpot == false
-          ) {
+          } else if (!event[event?.length - 1]?.moveEvent?.fields?.is_jackpot) {
             setTimeout(() => alert("you lose the betting!"), 1100);
           } else {
             alert("tx fail pls check you coin obj or betting Amount");
