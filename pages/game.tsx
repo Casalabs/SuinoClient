@@ -138,30 +138,30 @@ const GamePage = (props: {
     console.log(max, "suiObjects");
     const maxSuiObj = Object.assign(max)?.details?.reference?.objectId;
     let betV = betValue.map((number: number) => String(number));
-    console.log(betV);
+    console.log(betV, "betKind");
     try {
       if (betAmount <= 798771765 / 10 && maxSuiObj != undefined) {
         const resData = await signAndExecuteTransaction({
           transaction: {
             kind: "moveCall",
             data: {
-              packageObjectId: "0x11109e47e9b9dd66ec29eae073c212b0b079c79d",
+              packageObjectId: "0xb22d18b50d40f31dd07d5dcf1bc9b05af5c5253a",
               module: "flip",
               function: "bet",
               typeArguments: [],
               arguments: [
                 //FlIP
                 //process.env.FLIP,
-                "0xc08a91648081524a35034afa59f9b60dd402ef79",
+                process.env.NEXT_PUBLIC_FLIP,
                 //CORE
                 // process.env.CORE,
-                "0xf49fad78ff4406112b6503fcb567525c402dca1a",
+                process.env.NEXT_PUBLIC_CORE,
                 //TREASURY
                 // process.env.TREASURY,
-                "0x9198c3268ed19818c1d77df1148beb53f2ae1f51",
+                process.env.NEXT_PUBLIC_TREASURY,
                 //LOTTERY
                 // process.env.LOTTERY,
-                "0x16ad21a65a5704477263ae3b884bde429eb7af63",
+                process.env.NEXT_PUBLIC_LOTTERY,
                 String(maxSuiObj),
                 String(betAmount),
                 betV,
@@ -171,7 +171,10 @@ const GamePage = (props: {
           },
         });
         console.log(currentWallet, "wallet");
-        console.log("betting successfully!", resData);
+        console.log(
+          "betting successfully!",
+          resData.effects.events[resData.effects.events.length - 1]
+        );
 
         const event = resData?.effects?.events;
 
@@ -198,7 +201,9 @@ const GamePage = (props: {
                 1100
               );
             }
-          } else if (!event[event?.length - 1]?.moveEvent?.fields?.is_jackpot) {
+          } else if (
+            event[event?.length - 1]?.moveEvent?.fields?.is_jackpot == false
+          ) {
             setTimeout(() => alert("you lose the betting!"), 1100);
           } else {
             alert("tx fail pls check you coin obj or betting Amount");

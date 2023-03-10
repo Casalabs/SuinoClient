@@ -28,7 +28,7 @@ export const NavBar = () => {
         </Link>
         <div className="flex">
           <div className="flex md:order-2">
-            <div className="2xl:hidden lg:ml-5 lg:min-w-0 lg:justify-end lg:hidden md:hidden sm:flex opacity-100 z-60">
+            <div className=" lg:ml-5 lg:min-w-0 lg:justify-end  2xl:hidden lg:hidden md:hidden sm:flex opacity-100 z-60">
               <div className="w-full  flex items-center">
                 <div className="group z-50 relative w-6 h-11  cursor-pointer flex-col items-center flex">
                   <FontAwesomeIcon

@@ -5,7 +5,7 @@ import { Key, SetStateAction, useEffect, useRef, useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { PullValueState, WebsocketState } from "../atoms/FlipAtom";
 
-export const DashBoard = (
+export const DashBoard: any = (
   data:
     | {
         _id: string;
