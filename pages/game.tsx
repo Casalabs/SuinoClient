@@ -113,9 +113,7 @@ const GamePage = (props: {
   }
   const handleSignAndExecuteTx = async (betAmount: number, betValue: any) => {
     if (!connected) return;
-    const balance = await provider?.getCoinBalancesOwnedByAddress(
-      currentWallet[0].address
-    );
+    const balance = await provider?.getCoinBalancesOwnedByAddress(currentWallet[0].address);
     const suiObjects = balance.filter((value) => {
       const obj = Object?.assign(value);
       const amount = 1000;
@@ -127,10 +125,7 @@ const GamePage = (props: {
     const max = suiObjects.reduce((acc: any, cur: any) => {
       const obj1 = Object?.assign(acc);
       const obj2 = Object?.assign(cur);
-      if (
-        Number(obj1?.details?.data?.fields?.balance) <
-        Number(obj2?.details?.data?.fields?.balance)
-      ) {
+      if (Number(obj1?.details?.data?.fields?.balance) < Number(obj2?.details?.data?.fields?.balance)) {
         return cur;
       }
       return acc;
@@ -176,27 +171,12 @@ const GamePage = (props: {
         const event = resData?.effects?.events;
 
         if (event != undefined) {
-          console.log(
-            event[event?.length - 1]?.moveEvent?.fields?.is_jackpot,
-            "events"
-          );
-          console.log(
-            event[event?.length - 1]?.moveEvent?.fields?.jackpot_amount,
-            "how many money"
-          );
+          console.log(event[event?.length - 1]?.moveEvent?.fields?.is_jackpot, "events");
+          console.log(event[event?.length - 1]?.moveEvent?.fields?.jackpot_amount, "how many money");
           if (event[event?.length - 1]?.moveEvent?.fields?.is_jackpot) {
             setTimeout(() => alert("you win the betting!"), 1100);
             if (event[event?.length - 1]?.moveEvent?.fields?.jackpot_amount) {
-              setTimeout(
-                () =>
-                  alert(
-                    `you got ${
-                      event[event?.length - 1]?.moveEvent?.fields
-                        ?.jackpot_amount
-                    }`
-                  ),
-                1100
-              );
+              setTimeout(() => alert(`you got ${event[event?.length - 1]?.moveEvent?.fields?.jackpot_amount}`), 1100);
             }
           } else if (!event[event?.length - 1]?.moveEvent?.fields?.is_jackpot) {
             setTimeout(() => alert("you lose the betting!"), 1100);
@@ -220,18 +200,15 @@ const GamePage = (props: {
     <div className="w-full h-screen bg-[#050C08]">
       {errorState ? (
         <div>{errorState}</div>
-      ) : connected ? (
+      ) : !connected ? (
         <>
           {" "}
           <div className="fixed  opacity-80 top-0 left-0 w-screen  px-6 pb-[4rem] pt-3 overflow-auto ">
             <div>
               <nav className="" aria-label="Global">
-                <div className="flex  lg:min-w-0 lg:flex-1" aria-label="Global">
+                <div className="flex lg:min-w-0 lg:flex-1" aria-label="Global">
                   <Image src="/logo.png" width={50} height={50} alt="logo" />
-                  <Link
-                    href="/"
-                    className="pt-3 -m-1.5 p-1.5 text-3xl font-bold text-white text-bold"
-                  >
+                  <Link href="/" className="pt-3 -m-1.5 p-1.5 text-3xl font-bold text-white text-bold">
                     Suino
                   </Link>
 
@@ -260,7 +237,7 @@ const GamePage = (props: {
           >
             <Animation />
           </div>
-          <div className="flex w-full 2xl:h-full xl:h-full sm:h-full overflow-auto z-0">
+          <div className="z-0 flex w-full overflow-auto 2xl:h-full xl:h-full sm:h-full">
             <div
               className={`w-full 2xl:h-full xl:h-full sm:h-full text-white bg-gamewrapper  bg-no-repeat bg-cover bg-center ${
                 tx ? "hidden" : "flex-col"
@@ -270,7 +247,7 @@ const GamePage = (props: {
               <div className={` ${dash ? "flex" : "hidden"}`}>
                 <DashBoard data={data} />
               </div>
-              <div className="flex-col  w-full h-3/7 justify-center items-end ">
+              <div className="flex-col items-end justify-center w-full h-3/7 ">
                 <div className="flex justify-center ">
                   <div className="flex mt-[120px] ">
                     <Coins setCoinV={setCoinValue} />
@@ -295,14 +272,14 @@ const GamePage = (props: {
                       width={150}
                       height={80}
                       alt="btn"
-                      className="px-3 hover:translate-y-1 cursor-pointer 2xl:block xl:block sm:hidden "
+                      className="px-3 cursor-pointer hover:translate-y-1 2xl:block xl:block sm:hidden "
                     />
                     <Image
                       src="/game/valueBtn/001Mist.png"
                       width={100}
                       height={40}
                       alt="btn"
-                      className="px-3 hover:translate-y-1 cursor-pointer  2xl:hidden xl:hidden sm:block "
+                      className="px-3 cursor-pointer hover:translate-y-1 2xl:hidden xl:hidden sm:block "
                     />
                   </div>
                   <div
@@ -317,14 +294,14 @@ const GamePage = (props: {
                       width={150}
                       height={80}
                       alt="btn"
-                      className="px-3 hover:translate-y-1 cursor-pointer 2xl:block xl:block sm:hidden "
+                      className="px-3 cursor-pointer hover:translate-y-1 2xl:block xl:block sm:hidden "
                     />
                     <Image
                       src="/game/valueBtn/005Mist.png"
                       width={100}
                       height={40}
                       alt="btn"
-                      className="px-3 hover:translate-y-1 cursor-pointer  2xl:hidden xl:hidden sm:block "
+                      className="px-3 cursor-pointer hover:translate-y-1 2xl:hidden xl:hidden sm:block "
                     />
                   </div>
                   <div
@@ -339,14 +316,14 @@ const GamePage = (props: {
                       width={150}
                       height={80}
                       alt="btn"
-                      className="px-3 hover:translate-y-1 cursor-pointer 2xl:block xl:block sm:hidden "
+                      className="px-3 cursor-pointer hover:translate-y-1 2xl:block xl:block sm:hidden "
                     />
                     <Image
                       src="/game/valueBtn/01Mist.png"
                       width={100}
                       height={40}
                       alt="btn"
-                      className="px-3 hover:translate-y-1 cursor-pointer  2xl:hidden xl:hidden sm:block "
+                      className="px-3 cursor-pointer hover:translate-y-1 2xl:hidden xl:hidden sm:block "
                     />
                   </div>
                 </div>
@@ -363,14 +340,14 @@ const GamePage = (props: {
                       width={150}
                       height={80}
                       alt="btn"
-                      className="px-3 hover:translate-y-1 cursor-pointer 2xl:block xl:block sm:hidden "
+                      className="px-3 cursor-pointer hover:translate-y-1 2xl:block xl:block sm:hidden "
                     />
                     <Image
                       src="/game/valueBtn/05Mist.png"
                       width={100}
                       height={40}
                       alt="btn"
-                      className="px-3 hover:translate-y-1 cursor-pointer  2xl:hidden xl:hidden sm:block "
+                      className="px-3 cursor-pointer hover:translate-y-1 2xl:hidden xl:hidden sm:block "
                     />
                   </div>
                   <div
@@ -385,14 +362,14 @@ const GamePage = (props: {
                       width={150}
                       height={80}
                       alt="btn"
-                      className="px-3 hover:translate-y-1 cursor-pointer 2xl:block xl:block sm:hidden "
+                      className="px-3 cursor-pointer hover:translate-y-1 2xl:block xl:block sm:hidden "
                     />
                     <Image
                       src="/game/valueBtn/1Mist.png"
                       width={100}
                       height={40}
                       alt="btn"
-                      className="px-3 hover:translate-y-1 cursor-pointer  2xl:hidden xl:hidden sm:block "
+                      className="px-3 cursor-pointer hover:translate-y-1 2xl:hidden xl:hidden sm:block "
                     />
                   </div>
                   <div
@@ -407,27 +384,25 @@ const GamePage = (props: {
                       width={150}
                       height={80}
                       alt="btn"
-                      className="px-3 hover:translate-y-1 cursor-pointer 2xl:block xl:block sm:hidden "
+                      className="px-3 cursor-pointer hover:translate-y-1 2xl:block xl:block sm:hidden "
                     />
                     <Image
                       src="/game/valueBtn/5Mist.png"
                       width={100}
                       height={40}
                       alt="btn"
-                      className="px-3 hover:translate-y-1 cursor-pointer  2xl:hidden xl:hidden sm:block "
+                      className="px-3 cursor-pointer hover:translate-y-1 2xl:hidden xl:hidden sm:block "
                     />
                   </div>
                 </div>
 
-                <div className="flex-col justify-center item-center h-auto w-full mt-9">
+                <div className="flex-col justify-center w-full h-auto item-center mt-9">
                   <div
                     className="2xl:flex xl:flex sm:flex-col item-center justify-center mx-5 2xl:text-[30px] xl:text-[30px] sm:text-[20px]  py-0
               "
                   >
-                    <span className="flex justify-center font-Diplomata pt-3">
-                      Amount
-                    </span>
-                    <span className="flex justify-center font-Diplomata text-sm text-gray">
+                    <span className="flex justify-center pt-3 font-Diplomata">Amount</span>
+                    <span className="flex justify-center text-sm font-Diplomata text-gray">
                       Mist is a small unit of sui.
                     </span>
 
@@ -437,7 +412,7 @@ const GamePage = (props: {
                         value={suiValue / 100 + " " + "mMist"}
                       />
                     </div>
-                    <div className="flex justify-center items-center py-3">
+                    <div className="flex items-center justify-center py-3">
                       <div
                         className="flex  items-center justify-center bg-reset bg-cover cursor-pointer h-auto w-[8rem] rounded-md px-3 py-8 hover:translate-y-1"
                         onClick={() => setSuiValue(0)}
@@ -452,7 +427,7 @@ const GamePage = (props: {
                       width={470}
                       height={80}
                       alt="btn"
-                      className=" px-3 hover:translate-y-1 cursor-pointer"
+                      className="px-3 cursor-pointer  hover:translate-y-1"
                       onClick={() => {
                         handleSignAndExecuteTx(betAmount, CoinBetValue);
                         console.log(CoinBetValue, "coinBetValue");
@@ -473,12 +448,9 @@ const GamePage = (props: {
           <div className="fixed  opacity-80 top-0 left-0 w-screen  px-6 pb-[4rem] pt-3 overflow-auto ">
             <div>
               <nav className="" aria-label="Global">
-                <div className="flex  lg:min-w-0 lg:flex-1" aria-label="Global">
+                <div className="flex lg:min-w-0 lg:flex-1" aria-label="Global">
                   <Image src="/logo.png" width={50} height={50} alt="logo" />
-                  <Link
-                    href="/"
-                    className="pt-3 -m-1.5 p-1.5 text-3xl font-bold text-white text-bold"
-                  >
+                  <Link href="/" className="pt-3 -m-1.5 p-1.5 text-3xl font-bold text-white text-bold">
                     Suino
                   </Link>
                   <div className="flex w-full lg:flex lg:ml-5 lg:min-w-0 lg:justify-end">
@@ -497,17 +469,13 @@ const GamePage = (props: {
                 </div>
               </nav>
 
-              <div
-                className={` ${
-                  dash ? "flex text-white bg-[rgb(0,0,0,0.5)] " : "hidden"
-                }`}
-              >
+              <div className={` ${dash ? "flex text-white bg-[rgb(0,0,0,0.5)] " : "hidden"}`}>
                 <DashBoard />
               </div>
             </div>
           </div>
-          <div className="flex w-full h-screen overflow-y-auto overflow-x-auto z-0">
-            <div className="w-full h-screen text-white bg-gamewrapper  bg-no-repeat bg-cover bg-center ">
+          <div className="z-0 flex w-full h-screen overflow-x-auto overflow-y-auto">
+            <div className="w-full h-screen text-white bg-center bg-no-repeat bg-cover bg-gamewrapper ">
               <div className="flex-col items-start h-screen justify-center mt-[100px] ">
                 <span className="flex 2xl:text-[9rem] sm:text-[4rem]  font-bold tracking-tight sm:text-center text-white font-serif justify-center">
                   SUINO FLIP
